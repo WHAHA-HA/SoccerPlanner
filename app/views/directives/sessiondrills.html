@@ -1,0 +1,283 @@
+<div
+  class="box-level-1 fill drills-list"
+  ng-class="{'session-chooser':(mode == 'chooser'), 'session-print-view': isPrintView, 'session-shareMode': isShareMode }">
+  <h2 ng-if="mode != 'chooser'" translate>Drills</h2>
+  <h2 ng-if="mode == 'chooser'" translate>Choose Drill</h2>
+
+
+  <div class="content">
+    <div class="tools">
+      <a class="sp-btn green" ng-click="newDrill()">
+      <span class="glyphicon glyphicon-plus"></span> <span translate>New Drill</span></a>
+      <!-- <input type="text" name="search" value="" ng-model="search" placeholder="Search Drills"> -->
+    </div>
+
+    <div class="table-head">
+      <div class="cell-1"><span translate>Name</span>
+        <span
+          class="glyphicon glyphicon-menu-up"
+          ng-class="{'active': (activeSort.name=='name' && activeSort.rev==false)}"
+          ng-click="activeSort.name='drill.name';activeSort.rev=false"></span>
+        <span
+          class="glyphicon glyphicon-menu-down"
+          ng-class="{'active': (activeSort.name=='name' && activeSort.rev==true)}"
+          ng-click="activeSort.name='drill.name';activeSort.rev=true"
+          ></span></div>
+      <div class="cell-2 ng-hide"><span translate>Date</span>
+        <span
+          class="glyphicon glyphicon-menu-up"
+          ng-class="{'active': (activeSort.name=='date' && activeSort.rev==false)}"
+          ng-click="activeSort.name='drill.date';activeSort.rev=false"></span>
+        <span
+          class="glyphicon glyphicon-menu-down"
+          ng-class="{'active': (activeSort.name=='date' && activeSort.rev==true)}"
+          ng-click="activeSort.name='drill.date';activeSort.rev=true"
+          ></span></div>
+      <div class="clearfix"></div>
+    </div>
+
+
+    <div class="table-list" ng-class="{'printViewHeight' : isPrintView}">
+      <div ng-if="drills.length == 0" class="empty-div-wrapper">
+        <div class="alert alert-warning" role="alert" translate>You haven't added any Drills</div>
+      </div>
+      <ul dnd-list="drills">
+        <li
+          ng-class="{
+            'mode-loading':(loadingAction==true),
+            'active': activeIndex == $index,
+            'chooser-mode':(mode == 'chooser'),
+            'twoHeight': showList == 2,
+            'threeHeight': showList == 3,
+            'fourHeight': showList == 4,
+            'removeBr' : showList == 1,
+          }"
+          ng-repeat="drill in drills | filter:search | orderBy:activeSort.name:activeSort.rev"
+          class="heigt-fix"
+          dnd-draggable="drill"
+          dnd-moved="drills.splice($index, 1); onDrillMved(drills, $index)"
+          dnd-effect-allowed="move"
+          dnd-selected="models.selected = drill"
+          >
+
+          <div class="actions"  ng-if="mode != 'chooser'">
+            <span class="item" href="#" ng-click=""
+            dropdown-menu="actions"
+            dropdown-model="selectedAction"
+            dropdown-item-label="text"
+            dropdown-onchange="doAction(selected, drill, $index)"
+            >
+              <p class="pop-up-settings" translate>Settings</p>
+              <span class="glyphicon glyphicon-cog" aria-hidden="true" data-toggle="tooltip" data-placement="top"></span>
+            </span>
+          </div>
+          <div class="session-drill-detail-wrap" ng-hide="isPrintView">
+            <div class="split-30">
+              <span translate class="text">Duration</span>: <span class="text" ng-hide="editMode && activeIndex == $index">{{drill.duration}}</span>
+              <span ng-show="editMode && activeIndex == $index">
+                <input type="text" class="form-control clean ng-touched" ng-model="drill.duration">
+              </span>
+            </div>
+            <div class="split-30">
+              <span translate class="text">Field Size</span>: <span class="text" ng-hide="editMode && activeIndex == $index">{{drill.pitch}}</span>
+              <span ng-show="editMode && activeIndex == $index">
+                <input type="text" class="form-control clean ng-touched" ng-model="drill.pitch">
+              </span>
+            </div>
+            <div class="split-30">
+              <span translate>Order</span>: <span ng-hide="editMode && activeIndex == $index">{{drill.orderIndex}}</span>
+              <span ng-show="editMode && activeIndex == $index">
+                <select ng-model="drill.orderIndex"
+                        ng-options="n for n in [] | range:1:drills.length+1"
+                        class="form-control  clean"
+                >
+
+                </select>
+              </span>
+            </div>
+          </div>
+
+
+          <div class="tool-holder" ng-hide="isPrintView">
+            <a class="sp-btn green"
+                ng-click="editsessiondrill(drill, $index)"
+                ng-hide="editMode && activeIndex == $index"
+              >
+              <span class="ng-scope" translate>Edit Parameters</span>
+            </a>
+            <a class="sp-btn green"
+               ng-click="updateSessiondrill(drill, $index)"
+               ng-show="editMode && activeIndex == $index && !post.started"
+            >
+              <span class="ng-scope" translate>Update</span>
+            </a>
+            <div class="sp-btn green for-disabled" ng-show="post.started" translate>
+              Checking...
+            </div>
+
+          </div>
+
+          <div ng-click="drillEdit(drill)" style="z-index:0">
+
+            <!-- ng-click="onItemClick($event, drill)" -->
+            <div class="loading-text" ng-if="loadingAction && activeDrillKey==drill.drillkey" translate>
+              Saving...
+            </div>
+            <div class="imgbox"
+              ng-class="{
+                    'oneMarg' : showList == 1,
+                    'twoMarg' : showList == 2,
+                    'threeMarg' : showList == 3,
+                    'fourMarg' : showList == 4,
+                  }"
+            >
+              <div class="title-holder" ng-hide="isPrintView">
+                <div class="s-no-holder">{{$index+1}}</div>
+                <div class="title">
+                <p ng-if="mode != 'chooser'">
+                  {{drill.drill.name}}
+                </p>
+                <p ng-if="mode == 'chooser'">
+                  {{drill.drill.name}}
+                </p>
+                </div>
+              </div>
+              <div class="twoImgHolder"
+                ng-class="{
+                    'oneHeight' : showList == 1,
+                    'twoHeight' : showList == 2,
+                    'threeHeight' : showList == 3,
+                    'fourHeight' : showList == 4,
+                  }"
+                >
+                <img  class="bg-img-thumbline"
+                      src="../../imgs/green_bk.png"
+                      ng-show = "showBlack != '1' && (showList == 2 || showList == 3 || showList == 4)"
+
+                      />
+                <div class="inner-imge-holder">
+                  <img ng-hide="showBlack== '1'" ng-src="{{drill.drill.thumpUrl}}?ts={{ts}}" alt="" class="center-block"
+
+                  />
+                  <img ng-show="showBlack== '1'" ng-src="{{drill.drill.thumpUrlBlack}}?ts={{ts}}" alt="" class="center-block" />
+                </div>
+              </div>
+              <div class="title-holder below-img" ng-if="showList == 2 || showList == 3 || showList == 2">
+                <div class="s-no-holder" ng-if="showList == 3 || showList == 2">{{drill.order}}</div>
+                <div class="title" ng-if="showList == 2" ng-hide="isPrintView">
+                <p ng-if="mode != 'chooser'" ui-sref="app.drilleditor({drillkey:drill.drill.key})"
+                >
+                  {{drill.drill.name}}
+                </p>
+                <p ng-if="mode == 'chooser'">
+                  {{drill.drill.name}}
+                </p>
+                </div>
+                <ul class="other-details" ng-if="showList == 2 || showList == 3" style="margin-top:2px; float;right;">
+                  <li ng-if="drill.duration">
+                    <i class="fa fa-clock-o"></i> <span>{{drill.duration}}</span>
+                  </li>
+                  <li ng-if="drill.pitch">
+                    <i class="fa fa-expand"></i> <span>{{drill.pitch}}</span>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+            <div class="contentbox"
+                 ng-class="{
+                    'oneMarg' : showList == 1,
+                    'twoMarg' : showList == 2,
+                    'threeMarg' : showList == 3,
+                    'fourMarg' : showList == 4,
+                  }"
+            >
+              <div ng-if="showList == 1" class="header-title-holder-one">
+                <div class="head">{{drill.order}} <span ng-hide="isPrintView">{{drill.drill.name}}<spa></div>
+                <div class="other-details">
+                  <ul>
+                    <li ng-if="drill.duration">
+                      <i class="fa fa-clock-o"></i> <span>{{drill.duration}}</span>
+                    </li>
+                    <li ng-if="drill.pitch">
+                      <i class="fa fa-expand"></i><span> {{drill.pitch}}</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="title-holder below-img" ng-class="{'bor': showList == 4}" ng-hide="showList == 3 || showList == 2">
+                <div class="s-no-holder" ng-if="showList == 4">{{drill.order}}</div>
+                <div class="title" ng-if="showList == 3 || showList == 4" ng-hide="isPrintView">
+                <p ng-if="mode != 'chooser'" ui-sref="app.drilleditor({drillkey:drill.drill.key})">
+                  {{drill.drill.name}}
+                </p>
+                <p ng-if="mode == 'chooser'">
+                  {{drill.drill.name}}
+                </p>
+                </div>
+                <ul class="other-details" ng-if="showList == 3 || showList == 4"
+                >
+                  <li ng-if="drill.duration">
+                    <i class="fa fa-clock-o"></i> <span>{{drill.duration}}</span>
+                  </li>
+                  <li ng-if="drill.pitch">
+                    <i class="fa fa-expand"></i><span> {{drill.pitch}}</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="detailed-session-drill"
+                   ng-show="isPrintView"
+                   ng-class="{'twoView': showList == 2, 'ThreeView':showList == 3, 'oneView' : showList == 1}"
+                   >
+                <pre ><b translate>Setup</b>: {{drill.drill.setupText}} </pre>
+                <pre ><b translate>Instructions</b>: {{drill.drill.instructText}}</pre>
+                <pre ><b translate>Coaching Points</b>: {{drill.drill.coachText}}</pre>
+              </div>
+              <div class="detailed-session-drill"
+                ng-hide="editMode && activeIndex == $index || isPrintView"
+                ng-class="{'non-prnt-view' : !isPrintView}"
+               >
+                <!-- <p class="block-title" translate>SETUP,  &amp; </p> -->
+                <div class="split-30s">
+                  <pre ><b translate>Setup</b>: {{drill.drill.setupText}}</pre>
+                </div>
+                <div class="split-30s">
+                  <pre ><b translate>Instructions</b>: {{drill.drill.instructText}}</pre>
+                </div>
+                <div class="split-30s">
+                  <pre ><b translate>Coaching Points</b>: {{drill.drill.coachText}}</pre>
+                </div>
+              </div>
+
+              <div class="subtitle">
+                <span>{{drill.date | amDateFormat:'MMM DD, YYYY'}}</span>
+                <!-- <pre>sdfdsfs
+                  sdfsdf
+                  sdfsdfs
+                </pre>
+                <code>
+                  xdgfsdfsd
+                  *SDfsdf
+                  * sdfdsfsd
+                  * Sdfsdf
+                </code> -->
+              </div>
+
+              <div class="select-actions" ng-if="mode == 'chooser'">
+                <span class="sp-btn small green"
+                href="#"
+                translate>Select</span>
+              </div>
+
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+
+</div>

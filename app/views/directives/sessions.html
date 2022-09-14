@@ -1,0 +1,89 @@
+<div
+  class="box-level-1 fill sessions-list"
+  ng-class="{'session-chooser':(mode == 'chooser')}">
+  <h2 ng-if="mode != 'chooser'" translate>Sessions</h2>
+  <h2 ng-if="mode == 'chooser'" translate>Choose session</h2>
+  <a onClick="window.history.back()" class="close-btn" ng-if="mode == 'chooser'">
+    <i class="fa fa-times"></i>
+  </a>
+  <div class="content">
+    <div class="tools">
+      <a class="sp-btn red" ng-if="!isDemo" ng-click="newSession()"><span class="glyphicon glyphicon-plus"></span> <span translate>New Session</span></a>
+      <input type="text" name="search" value=""  ng-model="search" placeholder="{{'Search Sessions'|translate}}">
+    </div>
+
+    <div class="table-head">
+      <div class="cell-1"><span translate>Name</span>
+        <span
+          class="glyphicon glyphicon-menu-up"
+          ng-class="{'active': (activeSort.name=='name' && activeSort.rev==false)}"
+          ng-click="activeSort.name='name';activeSort.rev=false"></span>
+        <span
+          class="glyphicon glyphicon-menu-down"
+          ng-class="{'active': (activeSort.name=='name' && activeSort.rev==true)}"
+          ng-click="activeSort.name='name';activeSort.rev=true"
+          ></span></div>
+      <div class="cell-2"><span translate>Date</span>
+        <span
+          class="glyphicon glyphicon-menu-up"
+          ng-class="{'active': (activeSort.name=='date' && activeSort.rev==false)}"
+          ng-click="activeSort.name='date';activeSort.rev=false"></span>
+        <span
+          class="glyphicon glyphicon-menu-down"
+          ng-class="{'active': (activeSort.name=='date' && activeSort.rev==true)}"
+          ng-click="activeSort.name='date';activeSort.rev=true"
+          ></span></div>
+      <div class="clearfix"></div>
+    </div>
+
+    <div class="table-list">
+      <div ng-if="sessions.length == 0" class="empty-div-wrapper">
+        <div class="alert alert-warning" role="alert" translate>You haven't created any Session</div>
+      </div>
+      <ul ng-if="sessions">
+        <li
+        ng-repeat="session in sessions | filter:search | orderBy:activeSort.name:activeSort.rev"
+        ng-class="{
+          'mode-loading':(loadingAction==true),
+          'active': (activeSessionKey == session.key),
+          'chooser-mode':(mode == 'chooser')
+        }"
+        ng-click="onItemClick($event, session)"
+        >
+          <div class="loading-text" ng-if="loadingAction && activeSessionKey==session.key" translate>
+            Saving...
+          </div>
+          <div class="actions" ng-if="mode != 'chooser'">
+            <span class="item" href="#" ng-click=""
+            dropdown-menu="actions"
+            dropdown-model="selectedAction"
+            dropdown-item-label="text"
+            dropdown-onchange="doAction(selected, session, $index)"
+            > <p class="pop-up-settings" translate>Settings</p>
+              <span class="glyphicon glyphicon-cog" aria-hidden="true" data-toggle="tooltip" data-placement="top"></span>
+            </span>
+          </div>
+          <h3
+          ng-if="mode != 'chooser'"
+          ui-sref="app.session({sessionkey:session.key})"
+          >{{session.name}}</h3>
+          <h3
+          ng-if="mode == 'chooser'"
+          >{{session.name}}</h3>
+          <div class="subtitle">
+            <span>{{session.date | amUtc | amDateFormat:'MMM DD, YYYY'}}</span> <span>({{session.drills.length}} <span translate>drills</span>)</span>
+          </div>
+
+          <div class="select-actions" ng-if="mode == 'chooser'">
+            <span class="sp-btn small green"
+            href="#"
+            translate>Select</span>
+          </div>
+          <div class="clearfix"></div>
+        </li>
+      </ul>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+
+</div>

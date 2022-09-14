@@ -1,0 +1,68 @@
+@media only screen and (max-width:429px) {
+	.sessions-list, .drills-list{
+		.table-list{
+	    >ul, .items{
+	    	>li{
+		    	.imgbox{
+	          float: none;
+	          width: 100%;
+	          text-align: center;
+	          img{
+	            max-width: 150px;
+	          }
+	        }
+	        .contentbox{
+	          margin-left: 0px;
+	          width: 100%;
+	        }
+	      }
+	    }
+	  }
+	}
+	.left-toolbar, .right-toolbar{
+		display: none;
+	}
+}
+
+@media (min-width:768px) and (max-width:1226px) {
+	.header .titleinput {
+		width: 18%;
+		font-size: 17px;
+
+		&.increse-width {
+			width: 30%;
+		}
+	}
+
+} 
+
+@media (min-width:1226px) and (max-width:1300px) {
+	.header .titleinput {
+		width: 400px;
+	}
+
+} 
+
+@media (max-width:1024px) and (max-width:1226px) { 
+	.sessions-list .table-list > ul > li .session-drill-detail-wrap, 
+	.sessions-list .table-list .items > li .session-drill-detail-wrap, 
+	.drills-list .table-list > ul > li .session-drill-detail-wrap, 
+	.drills-list .table-list .items > li .session-drill-detail-wrap {
+		margin-top: 3px;
+		width: 310px;
+
+		.split-30 {
+			width: 50%;
+			margin-bottom: 5px;
+		}
+	}
+
+	.sessions-list .table-list > ul > li .session-drill-detail-wrap.drill-version, 
+	.sessions-list .table-list .items > li .session-drill-detail-wrap.drill-version, 
+	.drills-list .table-list > ul > li .session-drill-detail-wrap.drill-version, 
+	.drills-list .table-list .items > li .session-drill-detail-wrap.drill-version {
+		bottom: 55px;
+		width: 300px;
+	}
+
+}

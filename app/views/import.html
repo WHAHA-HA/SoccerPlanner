@@ -1,0 +1,102 @@
+<div class="screen-import">
+  <div class="container">
+    <div class="box-level-1 set-lg-width">
+      <h2>
+        <span ng-show="view.importing">
+          <span><i class="fa fa-refresh fa-spin"></i></span>
+            <span translate>Importing</span>.. <span class="files-count">{{(data.importingDrillFiles|filter:{processed:true}).length + (data.importingSessionFiles|filter:{processed:true}).length}}/{{data.importingDrillFiles.length + data.importingSessionFiles.length}}</span>
+        </span>
+        <span ng-show="!view.uploading && !view.importing && !view.imported" translate>Import Drills &amp; Sessions to library</span>
+        <span ng-show="view.imported" translate>Import completed</span>
+        <span ng-show="view.uploading" translate>Uploading file</span>
+      </h2>
+
+      <div class="text-content-holder">
+        <p class="display-tex" ng-hide="view.importing || view.imported" translate>Choose a drill file or zip file which has both session and drills.</p>
+        <p class="report-list" ng-show="view.importing || view.imported">
+          <span translate>Sessions</span> : {{data.importingSessionFiles.length}} <br>
+          <span translate>Drills</span> : {{data.importingDrillFiles.length}} <br>
+        </p>
+        <div class="alert alert-warning" ng-show="view.uploadingError">
+          <strong><span translate>File upload failed. Please try again.</span>
+        </div>
+        <div class="btn-holder">
+          <form>
+
+            <div class="upload-btn" ng-hide="view.importing || view.imported">
+              <div
+                  ngf-select ng-model="view.file"
+                  name="file" accept=".zip, .xml" translate>Choose File</div>
+            </div>
+          </form>
+          <!-- <button class="upload-btn" type="button" ng-click="newFileSelected()">Import</button> -->
+        </div>
+      </div>
+    </div>
+    <div class="box-level-1 set-lg-width" ng-show="(view.importing || view.imported) && data.importingDrillFiles.length > 0">
+      <h2 translate>Drills</h2>
+      <div class="text-content-holder">
+        <div class="list-img-wrapper">
+          <div class="indiv-div" ng-repeat="drill in data.importingDrillFiles">
+            <div class="wrapper">
+              <img ng-show="drill.drill && !drill.error" src="{{drill.drill.thumpUrl || '/imgs/thumpnail.png'}}" />
+              <div class="drill-name" ng-show="drill.drill">
+                <p>{{drill.drill.name}} </p>
+              </div>
+              <div class="loader" ng-show="drill.processing">
+                <i class="fa fa-circle-o-notch fa-spin"></i>
+              </div>
+              <div class="alert alert-warning" style="margin-top: 70px;" ng-show="drill.error">
+                <strong>{{drill.id}} <span translate>failed to import</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="box-level-1 set-lg-width session-div" style="margin-bottom:30px;" ng-show="(view.importing || view.imported) && data.importingSessionFiles.length > 0">
+      <h2 translate >Session</h2>
+      <div class="text-content-holder">
+        <div class="session-list-wrapper">
+          <div class="session-list" ng-repeat="session in data.importingSessionFiles">
+            <p class="name" ng-show="session.session">{{session.session.name}}</p>
+            <div class="drill-list" ng-show="session.session">
+              <p>({{session.addedDrills.length}}/{{session.drills.length}}) <span translate>Drills</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<div ng-include src="svgIconAssertsUrl" onload="onAssertLoaded()" style="height:0;"></div>
+<div class="tools-box editor-box hide">
+  <div class="editor" xmlns:svg="http://www.w3.org/2000/svg">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      class="editor-svg"
+      ng-class="'cursor-'+editor.activeCursor.key"
+      sp-droppable
+      drop="onAssertDrop"
+      sp-editor
+      sp-drill-obj="drill"
+      id="spEditorSVG"
+      height="455px"
+      width="585px">
+    </svg>
+
+    <div id="tempDrawHolder" class="tempSVG">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        id="spTempSVG"
+        height="455px"
+        width="585px"
+        ng-bind-html="drill.data | rawHtml">
+      </svg>
+      <canvas id="convertCanvas"  width="455px" height="585px"></canvas>
+    </div>
+  </div>
+</div>

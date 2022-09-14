@@ -1,0 +1,44 @@
+<div class="screen screen-login">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="box-level-1 padded login-box">
+        <h2 translate>Login</h2>
+
+        <form angular-validator-submit="doLogin()" name="loginForm" novalidate angular-validator>
+          <div class="form-group">
+            <label for="loginemail" translate>Email</label>
+            <!-- <input type="email" class="form-control clean" id="loginemail" ng-model="postUser.email" placeholder="" 
+            name="email"> -->
+            <input  type = "email"
+                    name = "emailAddress"
+                    class = "form-control clean"
+                    ng-model = "postUser.email"
+                    invalid-message="'Invalid Email Address'"
+                    validate-on="blur"
+                    required>
+          </div>
+          <div class="form-group">
+            <label for="loginpassword" translate>Password</label>
+            <input type="password" 
+                   class="form-control clean" 
+                   id="loginpassword" 
+                   ng-model="postUser.password" 
+                   placeholder=""
+              >
+          </div>
+          <div class="alert alert-danger" ng-show="post.error">
+            {{post.error}}
+          </div>
+          <button type="submit" ng-hide="post.started" class="sp-btn green" translate>Login</button>
+          <div class="sp-btn green for-disabled" ng-show="post.started" translate>
+            Checking...
+          </div>
+
+        </form>
+
+
+      </div>
+    </div>
+
+  </div>
+</div>

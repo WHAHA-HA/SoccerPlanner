@@ -1,0 +1,108 @@
+<div class="screen screen-translations">
+  <div class="row" ng-if="!view.ready">
+    <h3>Loading translations</h3>
+  </div>
+
+  <div class="row" ng-if="view.ready">
+    <div class="col-md-3">
+      <div class="box-level-1 padded white languages">
+        <h2>Languages</h2>
+        <ul class="clean">
+          <li ng-repeat="locale in view.suportedLocale">
+            <button class="btn sp-btn green" ng-click="selectLanguage(locale.key, locale.name);">{{locale.name}}</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-9" ng-if="view.mode == 'list'">
+      <div class="box-level-1 padded white">
+        <h1>Translations</h1>
+
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Message ID</th>
+              <th>Comments</th>
+              <th>Ref</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="item in view.items">
+              <th scope="row">{{$index+1}}</th>
+              <td>{{item.msgid}}</td>
+              <td>{{item.comments.join(', ')}}</td>
+              <td>{{item.references.join(', ')}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="col-md-9" ng-if="view.mode != 'list'">
+      <div class="box-level-1 padded white">
+
+        <div class="" ng-if="view.mode == 'loading'">
+          <div class="alert">
+            <h3>Loading...</h3>
+          </div>
+        </div>
+
+        <div class="" ng-if="view.mode == 'create'">
+          <h1>Create new translation for {{view.selectedLanguageName}}</h1>
+          <button ng-hide="view.Saving" class="btn sp-btn green"  ng-click="createNewLanguage(view.selectedLanguage);">Create New</button>
+          <div class="sp-btn green for-disabled" ng-show="view.Saving">
+            Creating...
+          </div>
+        </div>
+
+        <div class="" ng-if="view.mode == 'translate'">
+          <div class="pull-right">
+            <select ng-model="editorderby">
+              <option value="msgid">Name</option>
+              <option value="msgstr">Value</option>
+            </select>
+          </div>
+          <h1>Translations for {{view.selectedLanguageName}}</h1>
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Message ID</th>
+                <th>Translation</th>
+                <th>Comments</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="item in view.items|orderBy:editorderby">
+                <th scope="row">{{$index+1}}</th>
+                <td>{{item.msgid}}</td>
+                <td><textarea rows="2" cols="60" ng-model="item.msgstr[0]"></textarea></td>
+                <td><textarea rows="2" cols="30" ng-model="item.comments[0]"></textarea></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="">
+            <button ng-hide="view.insync" class="btn sp-btn green"  ng-click="syncTranslation(view.selectedLanguage);">Sync</button>
+            <div class="sp-btn green for-disabled" ng-show="view.insync">
+              Sync...
+            </div>
+
+            <button ng-hide="view.Saving" class="btn sp-btn green"  ng-click="saveTranslation(view.selectedLanguage);">Save</button>
+            <div class="sp-btn green for-disabled" ng-show="view.Saving">
+              Saving...
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <div class="clear-fix">
+  </div>
+  <br>
+  <br>
+
+</div>

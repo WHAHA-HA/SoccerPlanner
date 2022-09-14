@@ -1,0 +1,568 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language: ar\n"
+"Language-Team: \n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+
+#: drill.html:62
+#: session.html:37
+msgid "<strong>Use A4</strong> paper size for best print output"
+msgstr "<strong> استخدم A4</strong> لحجم الورق للحصول على أفضل مخرجات طباعة"
+
+#: session.html:104
+#: session.html:258
+msgid "Add Drill"
+msgstr "إضافة تدريب"
+
+#: editor.html:42
+msgid "ADD TO FIELD"
+msgstr "إضافة إلى الميدان"
+
+#: all.js:2003
+msgid "Add to Session"
+msgstr "إضافة إلى الجلسة"
+
+#: share.html:13
+msgid "Anyone who has the below URL can view this Drill and copy to their library. Copy and Paste permalink to send via email"
+msgstr "من يرغب فى الاطلاع على هذا ادناه URL الحفر نسخة الى المكتبة."
+
+#: share.html:4
+msgid "Anyone who has the below URL can view this Session and copy to their library. Copy and Paste permalink to send via email"
+msgstr "من يرغب فى الاطلاع على هذا ادناه عنوان URL, نسخة الى المكتبة."
+
+#: all.js:1921
+#: all.js:2046
+msgid "Are you sure you want to delete?"
+msgstr "هل أنت متأكد أنك تريد الحذف؟"
+
+#: all.js:2206
+msgid "Are you sure you want to remove this drill from the session?"
+msgstr "هل أنت متأكد أنك تريد إزالة هذا التدريب من الجلسة؟"
+
+#: editor.html:272
+msgid "Arrow Head"
+msgstr "رأس السهم"
+
+#: base.html:39
+#: drill.html:131
+#: drill.html:83
+msgid "Back"
+msgstr "خلف"
+
+#: all.js:305
+msgid "Ball Path"
+msgstr "مسار الكرة"
+
+#: drill.html:24
+#: session.html:29
+msgid "Black &amp; White"
+msgstr "أسود وأبيض"
+
+#: all.js:1922
+#: all.js:2047
+#: all.js:2207
+#: drill.html:11
+#: session.html:12
+#: session.html:173
+#: session.html:175
+#: session.html:307
+msgid "Cancel"
+msgstr "إلغاء"
+
+#: directives/drills.html:104
+#: directives/sessiondrills.html:114
+#: login.html:33
+msgid "Checking..."
+msgstr "جار الفحص..."
+
+#: import.html:15
+msgid "Choose a drill file or zip file which has both session and drills."
+msgstr "اختر ملف التدريب أو ملف ZIP الذي يحتوي على كلا من الجلسة والتدريبات."
+
+#: editor.html:10
+msgid "Choose a field"
+msgstr "اختر ميدان"
+
+#: directives/drills.html:11
+#: directives/sessiondrills.html:5
+msgid "Choose Drill"
+msgstr "اختر تدريب"
+
+#: import.html:27
+msgid "Choose File"
+msgstr "اختر ملف"
+
+#: directives/sessions.html:5
+msgid "Choose session"
+msgstr "اختر جلسة"
+
+#: all.js:305
+msgid "Circle"
+msgstr "دائرة"
+
+#: base.html:40
+msgid "Clear"
+msgstr "مسح"
+
+#: settings.html:35
+msgid "Club Logo"
+msgstr "شعار النادي"
+
+#: directives/sessiondrills.html:236
+#: directives/sessiondrills.html:250
+#: drill.html:126
+#: drill.html:79
+#: editor.html:191
+msgid "Coaching Points"
+msgstr "نقاط التدريب"
+
+#: drill.html:20
+#: editor.html:225
+#: session.html:25
+msgid "Color"
+msgstr "اللون"
+
+#: editor.html:48
+msgid "Colors"
+msgstr "الألوان"
+
+#: all.js:2003
+#: all.js:2175
+msgid "Copy"
+msgstr "نسخ"
+
+#: drill.html:13
+#: drill.html:133
+#: drill.html:85
+msgid "Copy to My Drills"
+msgstr "نسخ إلى تدريباتي"
+
+#: session.html:100
+#: session.html:254
+msgid "Copy to My Sessions"
+msgstr "نسخ إلى جلساتي"
+
+#: drill.html:137
+#: session.html:332
+msgid "Created with"
+msgstr "أنشئت من قبل"
+
+#: directives/drills.html:36
+#: directives/sessiondrills.html:26
+#: directives/sessions.html:26
+#: session.html:151
+#: session.html:210
+#: session.html:233
+#: session.html:293
+#: session.html:53
+#: session.html:78
+msgid "Date"
+msgstr "التاريخ"
+
+#: all.js:1891
+#: all.js:1923
+#: all.js:2003
+#: all.js:2048
+msgid "Delete"
+msgstr "حذف"
+
+#: all.js:305
+msgid "Dribble"
+msgstr "دحرجة الكرة"
+
+#: drillprint.html:5
+msgid "Drill Print"
+msgstr "طباعة تدريب"
+
+#: directives/sessions.html:74
+msgid "drills"
+msgstr "التدريبات"
+
+#: directives/drills.html:4
+#: directives/sessiondrills.html:4
+#: import.html:18
+#: import.html:37
+#: import.html:64
+#: sessionprint.html:7
+msgid "Drills"
+msgstr "تدريبات"
+
+#: session.html:17
+msgid "Drills per page"
+msgstr "تدريبات لكل صفحة"
+
+#: directives/drills.html:78
+#: directives/sessiondrills.html:76
+#: drill.html:38
+#: session.html:143
+#: session.html:216
+#: session.html:240
+#: session.html:288
+#: session.html:59
+#: session.html:86
+msgid "Duration"
+msgstr "المدة الزمنية"
+
+#: all.js:1891
+#: all.js:2175
+#: session.html:249
+#: session.html:95
+msgid "Edit"
+msgstr "تحرير"
+
+#: directives/drills.html:96
+#: directives/sessiondrills.html:106
+msgid "Edit Parameters"
+msgstr "تحرير المعلمات"
+
+#: all.js:2003
+msgid "Editor"
+msgstr "المحرر"
+
+#: login.html:9
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#: editor.html:94
+msgid "Equipment"
+msgstr "المعدات"
+
+#: import.html:50
+msgid "failed to import"
+msgstr "فشل في الاستيراد"
+
+#: directives/drills.html:84
+#: directives/sessiondrills.html:82
+#: drill.html:42
+msgid "Field Size"
+msgstr "حجم الميدان"
+
+#: import.html:21
+msgid "File upload failed. Please try again."
+msgstr "فشل رفع الملف. يرجى المحاولة مرة أخرى."
+
+#: settings.html:14
+msgid "Full Name"
+msgstr "الاسم بالكامل"
+
+#: editor.html:74
+msgid "Goals"
+msgstr "الأهداف"
+
+#: all.js:305
+msgid "Highlight"
+msgstr "تسليط الضوء"
+
+#: base.html:5
+msgid "Home"
+msgstr "الرئيسية"
+
+#: base.html:6
+msgid "Import"
+msgstr "استيراد"
+
+#: import.html:10
+msgid "Import completed"
+msgstr "الاستيراد اكتمل"
+
+#: import.html:9
+msgid "Import Drills &amp; Sessions to library"
+msgstr "استيراد التدريبات والجلسات للمكتبة"
+
+#: import.html:7
+msgid "Importing"
+msgstr "جار الاستيراد"
+
+#: all.js:968
+msgid "Insert Name of Drill Here"
+msgstr "إدراج اسم التدريب هنا"
+
+#: directives/sessiondrills.html:235
+#: directives/sessiondrills.html:247
+#: drill.html:124
+#: drill.html:77
+#: editor.html:187
+msgid "Instructions"
+msgstr "التعليمات"
+
+#: settings.html:24
+msgid "Language"
+msgstr "اللغة"
+
+#: base.html:49
+#: base.html:7
+msgid "Library"
+msgstr "المكتبة"
+
+#: editor.html:237
+msgid "Line Thickness"
+msgstr "سمك الخط"
+
+#: login.html:32
+#: login.html:5
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+#: base.html:20
+msgid "Logout"
+msgstr "تسجيل الخروج"
+
+#: settings.html:55
+msgid "Maximum 5MB"
+msgstr "الحد الأقصى 5 ميغابايت"
+
+#: directives/drills.html:26
+#: directives/sessiondrills.html:16
+#: directives/sessions.html:16
+#: session.html:119
+#: session.html:273
+msgid "Name"
+msgstr "الاسم"
+
+#: directives/drills.html:18
+#: directives/sessiondrills.html:11
+msgid "New Drill"
+msgstr "تدريب جديد"
+
+#: directives/sessions.html:11
+msgid "New Session"
+msgstr "جلسة جديدة"
+
+#: session.html:128
+#: session.html:245
+#: session.html:277
+#: session.html:91
+msgid "Notes"
+msgstr "ملاحظات"
+
+#: directives/sessiondrills.html:88
+msgid "Order"
+msgstr "طلب"
+
+#: login.html:21
+msgid "Password"
+msgstr "كلمة المرور"
+
+#: all.js:305
+msgid "Pen"
+msgstr "قلم"
+
+#: all.js:305
+msgid "Player Path"
+msgstr "مسار اللاعب"
+
+#: editor.html:46
+msgid "Players"
+msgstr "اللاعبين"
+
+#: all.js:2003
+#: base.html:41
+#: drill.html:132
+#: drill.html:8
+#: drill.html:84
+#: session.html:102
+#: session.html:256
+#: session.html:9
+msgid "Print"
+msgstr "طباعة"
+
+#: base.html:17
+msgid "Profile"
+msgstr "الملف الشخصي"
+
+#: all.js:305
+msgid "Rectangle"
+msgstr "مستطيل"
+
+#: all.js:2208
+msgid "Remove"
+msgstr "إزالة"
+
+#: all.js:2175
+msgid "Remove from session"
+msgstr "إزالة من الجلسة"
+
+#: base.html:33
+#: directives/drills.html:22
+#: drill.html:50
+#: session.html:166
+#: session.html:306
+#: settings.html:71
+msgid "Save"
+msgstr "saveii"
+
+#: base.html:42
+msgid "Save As"
+msgstr "حفظ باسم"
+
+#: base.html:34
+#: directives/drills.html:110
+#: directives/sessiondrills.html:123
+#: directives/sessions.html:53
+#: drill.html:51
+#: session.html:177
+#: session.html:308
+#: settings.html:74
+msgid "Saving..."
+msgstr "جار الحفظ..."
+
+#: directives/drills.html:19
+msgid "Search Drills"
+msgstr "البحث عن تدريبات"
+
+#: directives/sessions.html:12
+msgid "Search Sessions"
+msgstr "البحث عن جلسات"
+
+#: directives/drills.html:134
+#: directives/sessiondrills.html:269
+#: directives/sessions.html:78
+msgid "Select"
+msgstr "اختر"
+
+#: all.js:305
+msgid "Select & Drag"
+msgstr "اختر واسحب"
+
+#: editor.html:203
+msgid "Select and Draw"
+msgstr "اختر وارسم"
+
+#: directives/drills.html:138
+msgid "Selected"
+msgstr "تم اختيارها"
+
+#: import.html:58
+msgid "Session"
+msgstr "الجلسة"
+
+# مخطط الجلسة
+#: drill.html:137
+#: session.html:332
+msgid "Session Planner 4.0"
+msgstr "Session Planner 4.0"
+
+#: sessionprint.html:22
+msgid "Session Print Preview"
+msgstr "معاينة الجلسة قبل الطباعة"
+
+#: session.html:183
+#: session.html:314
+msgid "Session Saved"
+msgstr "تم حفظ الجلسة"
+
+#: directives/sessions.html:4
+#: import.html:17
+msgid "Sessions"
+msgstr "الجلسات"
+
+#: directives/drills.html:72
+#: directives/sessiondrills.html:70
+#: directives/sessions.html:62
+#: settings.html:9
+msgid "Settings"
+msgstr "الإعدادات"
+
+#: directives/sessiondrills.html:234
+#: directives/sessiondrills.html:244
+#: drill.html:122
+#: drill.html:75
+#: editor.html:183
+msgid "Setup"
+msgstr "إعداد"
+
+#: all.js:305
+msgid "Shape"
+msgstr "الشكل"
+
+#: all.js:2003
+#: all.js:2175
+#: session.html:252
+#: session.html:98
+#: share.html:12
+#: share.html:3
+msgid "Share"
+msgstr "مشاركة"
+
+#: drill.html:137
+#: session.html:332
+msgid "soccerspecific.com"
+msgstr "soccerspecific.com"
+
+#: settings.html:61
+msgid "Something went wrong!"
+msgstr "حدث شيء ما خطأ!"
+
+#: session.html:136
+#: session.html:213
+#: session.html:236
+#: session.html:283
+#: session.html:56
+#: session.html:82
+msgid "Team"
+msgstr "الفريق"
+
+#: editor.html:111
+msgid "Text"
+msgstr "النص"
+
+#: all.js:305
+msgid "Text Box"
+msgstr "خانة النص"
+
+#: base.html:80
+msgid "This application is not tested or compatible with your browser, please use the latest version of a supported browser."
+msgstr "هذا التطبيق لم يختبر أو غير متوافقة مع متصفحك، يرجى استخدام أحدث إصدار من متصفح معتمد."
+
+#: all.js:305
+msgid "Triangle"
+msgstr "مثلث"
+
+#: editor.html:179
+msgid "Type it up"
+msgstr "اكتبه"
+
+#: directives/drills.html:102
+#: directives/sessiondrills.html:112
+msgid "Update"
+msgstr "تحديث"
+
+#: settings.html:53
+msgid "Upload New Logo"
+msgstr "رفع شعار جديد"
+
+#: import.html:11
+msgid "Uploading file"
+msgstr "الملف المرفوع"
+
+#: all.js:2175
+#: sessionprint.html:13
+msgid "View"
+msgstr "عرض"
+
+#: base.html:80
+msgid "Warning!"
+msgstr "تحذير!"
+
+#: directives/sessiondrills.html:42
+msgid "You haven't added any Drills"
+msgstr "أنت لم تقم بإضافة أي تدريبات"
+
+#: directives/drills.html:52
+msgid "You haven't created any Drills"
+msgstr "أنت لم تقم بإنشاء أي تدريبات"
+
+#: directives/sessions.html:41
+msgid "You haven't created any Session"
+msgstr "أنت لم تقم بإنشاء أي جلسات"
+
+#: editor.html:2
+msgid "Your browser does not have enough width, should have atleast 1024px."
+msgstr "متصفحك ليس لديه مساحة عرض كافية، يجب أن تكون 1024px على الأقل."

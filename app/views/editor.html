@@ -1,0 +1,314 @@
+<div class="alert alert-danger editor-alert" ng-if="hideViewableScreen" style="margin-top:30px;">
+  <span translate>Your browser does not have enough width, should have atleast 1024px.</span>
+</div>
+
+<div class="screen screen-editor" ng-show="ShowViewableScreen" ng-if="!hideEverything">
+  <div ng-include src="svgIconAssertsUrl" onload="onAssertLoaded()" style="height:0;"></div>
+  <div class="row" ng-if="view.ready">
+    <div class="left-toolbar" ng-class="{'col-md-3' : !ChangeClase, 'col-md-4' : ChangeClase }">
+      <div class="box-level-1 nopad tools-box select-fields">
+        <h2><span class="number">1</span> <span translate>Choose a field</span></h2>
+        <div class="expand-button pull-right" ng-show="!view.fieldboxOpenned">
+          <button
+            ng-click="expanBox()"
+            type="button"
+            class="btn btn-default btn-lg"
+            id="openFieldBox"
+            >
+            <span class="glyphicon glyphicon-triangle-right" id="openFieldIcon" aria-hidden="true"></span>
+          </button>
+        </div>
+        <ul class="content" ng-class="{'open':view.fieldboxOpenned}" id="openedFieldBox">
+          <li
+            ng-repeat="field in editorSetup.fieldsOrder"
+            ng-class="{'selected':(field.key==editor.activeField.key)}"
+            ng-click="view.fieldboxOpenned=false;editor.activeField=field;">
+            <svg xmlns="http://www.w3.org/2000/svg" class="fieldicon"><use xlink:href="{{editorSetup.assertSVGUrl('field_' + field.key)}}" /></svg>
+
+          </li>
+            <!-- ng-repeat="field in editorSetup.fieldsOrder | filter : !editor.activeField.key | limitTo:1" -->
+          <li
+            ng-class="{'noselected': (editorSetup.fieldsOrder[OptionalFieldIdx].key!=editor.activeField.key), 'hide':view.fieldboxOpenned}"
+            ng-click="view.fieldboxOpenned=false;editor.activeField=editorSetup.fieldsOrder[OptionalFieldIdx];"
+            >
+            <svg xmlns="http://www.w3.org/2000/svg" class="fieldicon"><use xlink:href="{{editorSetup.assertSVGUrl('field_' + editorSetup.fieldsOrder[OptionalFieldIdx].key)}}" /></svg>
+          </li>
+        </ul>
+        <div class="clearfix">
+
+        </div>
+      </div>
+      <div class="box-level-1 nopad  tools-box select-stuff">
+        <h2><span class="number">2</span> <span translate>ADD TO FIELD</span></h2>
+
+        <div class="content stuff-box">
+          <sp-tabs>
+            <sp-tab-pane id="players" selected="true" title="{{'Players'|translate}}">
+              <div class="color-panel">
+                <label translate>Colors</label>
+                <span
+                  ng-style="{'background':color.code}"
+                  ng-repeat="color in editorSetup.playerColors"
+                  ng-class="{active:editor.activePlayerColor.code == color.code}"
+                  ng-click="editor.activePlayerColor=color;"></span>
+              </div>
+              <div class="player-panel">
+                <ul
+                  class="players"
+                  ng-repeat="color in editorSetup.playerColors"
+                  ng-show="editor.activePlayerColor.code == color.code">
+                  <li
+                    ng-repeat="player in editorSetup.asserts.players"
+
+                    sp-draggable
+                    sp-data = "{{'player_' + color.label + '_' + player}},chooseAssertHandler"
+
+                    ng-class="{'active':editor.activeAssert == 'player_' + color.label + '_' + player}"
+                    ng-click="editor.chooseAssertHandler('player_' + color.label + '_' + player)">
+                    <div class="hack-holder"></div>
+                    <svg class="playericon"><use xlink:href="{{editorSetup.playerSVGUrl(color, player)}}" /></svg>
+                  </li>
+                </ul>
+              </div>
+            </sp-tab-pane>
+            <sp-tab-pane id="goals" title="{{'Goals'|translate}}" style="height:315px;">
+              <div class="goals-panel">
+                <div class="goals-panel-box">
+                  <div
+                    sp-draggable
+                    ng-repeat="goal in editorSetup.asserts.goals"
+                    ng-style="goal.style"
+                    sp-data = "post_{{goal.key}},chooseAssertHandler"
+                    ng-click="editor.chooseAssertHandler('post_' + goal.key);"
+                    ng-class="{'active':editor.activeAssert == 'post_' + goal.key}"
+                    class="item"
+                    ng-bind-html="goal.html | rawHtml"
+                    >
+
+                  </div>
+                </div>
+                <div class="clearfix">
+                </div>
+              </div>
+            </sp-tab-pane>
+            <sp-tab-pane id="equipment" title="{{'Equipment'|translate}}">
+              <div class="equipment-panel">
+                <div class="equipment-panel-box">
+                  <div
+                    sp-draggable
+                    ng-repeat="equip in editorSetup.asserts.equips"
+                    ng-style="equip.style"
+                    sp-data = "assert_{{equip.key}},chooseAssertHandler"
+                    ng-click="editor.chooseAssertHandler('assert_' + equip.key);"
+                    ng-class="{'active':editor.activeAssert == 'assert_' + equip.key}"
+                    class="item"
+                    ng-bind-html="equip.html | rawHtml"
+                    >
+                  </div>
+                </div>
+              </div>
+            </sp-tab-pane>
+            <sp-tab-pane id="letters" title="{{'Text'|translate}}">
+              <div class="letters-panel">
+                <ul class="letters">
+                  <li
+                    sp-draggable
+                    ng-class="{'text-box': letter == 'Text Box', 'active':editor.activeAssert == 'letter_' + letter}"
+                    sp-data = "{{'letter_' + letter}},chooseLabelHandlerById"
+                    ng-repeat="letter in editorSetup.asserts.letters"
+                    ng-click="editor.chooseLabelHandler('letter_' + letter, letter)">
+                    <span>{{letter|translate}}</span>
+                  </li>
+                </ul>
+              </div>
+            </sp-tab-pane>
+          </sp-tabs>
+
+        </div>
+        <div class="content stuff-tool-box hide" XREMOVETHIS>
+          <ul class="stuff-tools">
+            <li
+              sp-draggable
+              sp-data = "{{cursor.key}},drawForCursor"
+              ng-repeat="cursor in editorSetup.cursorsOrder.left"
+              ng-class="{'active': (cursor.key == editor.activeCursor.key)}"
+              ng-click="selectCursor($event, cursor.key)"
+              >
+              <span class="tool-icon tool-icon-{{cursor.key}}"></span>
+              <span>{{cursor.name}}</span>
+            </li>
+          </ul>
+        </div>
+        <div class="clearfix">
+
+        </div>
+      </div>
+    </div>
+    <div class="draw-column" ng-class="{'col-md-6' : !ChangeClase, 'col-md-7' : ChangeClase }">
+      <div class="tools-box editor-box">
+        <div class="editor" xmlns:svg="http://www.w3.org/2000/svg">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            class="editor-svg"
+            ng-class="'cursor-'+editor.activeCursor.key"
+            sp-droppable
+            drop="onAssertDrop"
+            sp-editor
+            sp-drill-obj="drill"
+            id="spEditorSVG"
+            height="455px"
+            width="585px">
+          </svg>
+
+          <div id="tempDrawHolder" class="tempSVG">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              id="spTempSVG"
+              height="455px"
+              width="585px"
+              ng-bind-html="drill.data | rawHtml">
+            </svg>
+            <canvas id="convertCanvas"  width="455px" height="585px"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="box-level-1 nopad  tools-box type-it-up">
+        <div class="texts">
+          <h2><span class="number">4</span> <span translate>Type it up</span></h2>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 type-details">
+            <label class="col-xs-3" translate>Setup</label>
+            <textarea class="col-xs-7" ng-model="drill.setupText" rows="2" cols="40"></textarea>
+          </div>
+          <div class="col-xs-12 type-details">
+            <label class="col-xs-3" translate>Instructions</label>
+              <textarea class="col-xs-7" ng-model="drill.instructText" rows="2" cols="40"></textarea>
+          </div>
+          <div class="col-xs-12 type-details">
+            <label class="col-xs-3" translate>Coaching Points</label>
+              <textarea class="col-xs-7" ng-model="drill.coachText" rows="2" cols="40"></textarea>
+          </div>
+        </div>
+        <div class="pull-right col-md-2 hidden-sm hidden-xs soccer-specific">
+          <img src="/imgs/soccer-specific-logo-square.png" alt="Soccer Specific Logo">
+        </div>
+      </div>
+    </div>
+    <div class="right-toolbar" ng-class="{'col-md-3' : !ChangeClase, 'col-md-1' : ChangeClase }">
+      <div class="box-level-1 nopad  tools-box select-draw-tools">
+
+        <h2><span class="number">3</span> <span class="field-title" translate>Select and Draw</span></h2>
+        <ul class="content">
+          <li
+            ng-repeat="cursor in editorSetup.cursorsOrder.right"
+            ng-class="{'active': (cursor.key == editor.activeCursor.key)}"
+            ng-click="selectCursor($event, cursor.key)"
+            >
+            <div class="tool-line">
+              <div class="pull-left tool-icon">
+                <svg><use xlink:href="{{editorSetup.cursorSVGUrl(cursor.key)}}" transform="matrix(.65,0,0,.65,0,0)"/></svg>
+              </div>
+              <div class="tool-name">
+                <span>{{cursor.name|translate}}</span>
+              </div>
+            </div>
+            <div class="clearfix">
+
+            </div>
+          </li>
+
+          <li class="color-icons">
+            <div class="color-panel">
+                <label translate>Color</label>
+                <span
+                  ng-style="{'background':color.code}"
+                  ng-repeat="color in editorSetup.colors"
+                  ng-class="{active:editor.activeDrawColor.code == color.code}"
+                  ng-click="editor.activeDrawColor=color;"></span>
+              </div>
+          </li>
+
+          <li class="thickness-panel">
+            <div class="">
+                <div class="pull-left labelbox">
+                  <label translate>Line Thickness</label>
+                </div>
+
+                <div
+                  ng-repeat="thick in editorSetup.thickness"
+                  ng-click="editor.activeDrawThickness=thick;"
+                  class="pull-left abar">
+                  <svg>
+                    <line
+                    x1="5" y1="5" x2="5" y2="30"
+                    stroke-linecap="round"
+                    stroke-width="{{thick.width+1}}"
+                    class="thick-{{thick.key}} thickline"
+                    ng-class="{active:thick.key==editor.activeDrawThickness.key}"
+
+                    ></line>
+                  </svg>
+                </div>
+
+                <div class="pull-left abar hide">
+                  <svg><line x1="5" y1="5" x2="5" y2="30" stroke-width="{{5+1}}" stroke="black" stroke-linecap="round"></line></svg>
+                </div>
+                <div class="pull-left abar hide">
+                  <svg><line x1="5" y1="5" x2="5" y2="30" stroke-width="6" stroke-linecap="round" stroke="black"></line></</svg>
+                </div>
+
+                <div class="clearfix">
+                </div>
+
+              </div>
+          </li>
+
+          <li class="color-icons" xng-show="editor.hasArrowHead">
+            <div class="labelbox-arrow">
+              <div class="label">
+                <label translate>Arrow Head</label>
+              </div>
+              <div ng-click="editor.activeArrowHead='tail';" class="split-30" style="height: 30px;">
+                <svg style="  width: 20px;height: 30px;">
+                  <defs>
+                    <marker viewBox="0 0 20 20" markerWidth="20" markerHeight="20" orient="auto" refX="0" refY="8" id="markerstart_black">
+                        <g stroke="#000" stroke-width="1" ng-class="{active: 'tail'==editor.activeArrowHead}">
+                          <line x1="4" x2="0" y1="5" y2="8" ></line>
+                          <line x1="0" x2="4" y1="8" y2="11" ></line>
+                        </g>
+                      </marker>
+                  </defs>
+                  <line stroke="black" stroke-width="2" x1="0" x2="20" y1="15" y2="15" style="marker-start: url(#markerstart_black);"
+                    ng-class="{active: 'tail'==editor.activeArrowHead}"
+
+                  ></line>
+                </svg>
+              </div>
+              <div ng-click="editor.activeArrowHead='none';" class="split-30" style="height: 30px;">
+                <svg style="  width: 20px;height: 30px;">
+                  <line stroke="black" stroke-width="2" x1="0" x2="20" y1="15" y2="15" ng-class="{active: 'none'==editor.activeArrowHead  || !editor.activeArrowHead}"></line>
+                </svg>
+              </div>
+              <div ng-click="editor.activeArrowHead='head';" class="split-30" style="height: 30px;">
+                <svg style="  width: 20px;height: 30px;">
+                  <defs>
+                    <marker viewBox="0 0 20 20" markerWidth="20" markerHeight="20" orient="auto" refX="4" refY="8" id="markerend_black">
+                        <g stroke="#000" stroke-width="1" ng-class="{active: 'head'==editor.activeArrowHead}">
+                          <line x1="0" x2="4" y1="5" y2="8"></line>
+                          <line x1="4" x2="0" y1="8" y2="11"></line>
+                        </g>
+                      </marker>
+                  </defs>
+                  <line stroke="black" stroke-width="2" x1="0" x2="20" y1="15" y2="15" style="marker-end: url(#markerend_black);" ng-class="{active: 'head'==editor.activeArrowHead}"></line>
+                </svg>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

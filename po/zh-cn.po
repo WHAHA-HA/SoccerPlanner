@@ -1,0 +1,568 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language: zh-cn\n"
+"Language-Team: \n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+
+#: drill.html:62
+#: session.html:37
+msgid "<strong>Use A4</strong> paper size for best print output"
+msgstr "<strong>使用A4</strong>纸张以便达到最佳打印效果"
+
+#: session.html:104
+#: session.html:258
+msgid "Add Drill"
+msgstr "添加训练"
+
+#: editor.html:42
+msgid "ADD TO FIELD"
+msgstr "添加到球场"
+
+#: all.js:2003
+msgid "Add to Session"
+msgstr "添加到学习项目"
+
+#: share.html:13
+msgid "Anyone who has the below URL can view this Drill and copy to their library. Copy and Paste permalink to send via email"
+msgstr "任何人谁拥有以下网址可以看到这次演练并复制到他们的图书馆。"
+
+#: share.html:4
+msgid "Anyone who has the below URL can view this Session and copy to their library. Copy and Paste permalink to send via email"
+msgstr "任何人谁拥有以下网址可以看到这次演练并复制到他们的图书馆。"
+
+#: all.js:1921
+#: all.js:2046
+msgid "Are you sure you want to delete?"
+msgstr "确定想要删除？"
+
+#: all.js:2206
+msgid "Are you sure you want to remove this drill from the session?"
+msgstr "确定想要从这一学习项目中移除本次训练？"
+
+#: editor.html:272
+msgid "Arrow Head"
+msgstr "前进"
+
+#: base.html:39
+#: drill.html:131
+#: drill.html:83
+msgid "Back"
+msgstr "后退"
+
+#: all.js:305
+msgid "Ball Path"
+msgstr "球路"
+
+#: drill.html:24
+#: session.html:29
+msgid "Black &amp; White"
+msgstr "黑与白"
+
+#: all.js:1922
+#: all.js:2047
+#: all.js:2207
+#: drill.html:11
+#: session.html:12
+#: session.html:173
+#: session.html:175
+#: session.html:307
+msgid "Cancel"
+msgstr "取消"
+
+#: directives/drills.html:104
+#: directives/sessiondrills.html:114
+#: login.html:33
+msgid "Checking..."
+msgstr "检查中..."
+
+#: import.html:15
+msgid "Choose a drill file or zip file which has both session and drills."
+msgstr "请选择同时包含学习项目和训练内容的训练文件或压缩文件。"
+
+#: editor.html:10
+msgid "Choose a field"
+msgstr "选择一个球场"
+
+#: directives/drills.html:11
+#: directives/sessiondrills.html:5
+msgid "Choose Drill"
+msgstr "选择训练"
+
+#: import.html:27
+msgid "Choose File"
+msgstr "选择文件 "
+
+#: directives/sessions.html:5
+msgid "Choose session"
+msgstr "选择学习项目"
+
+#: all.js:305
+msgid "Circle"
+msgstr "圆"
+
+#: base.html:40
+msgid "Clear"
+msgstr "清除"
+
+#: settings.html:35
+msgid "Club Logo"
+msgstr "俱乐部徽标"
+
+#: directives/sessiondrills.html:236
+#: directives/sessiondrills.html:250
+#: drill.html:126
+#: drill.html:79
+#: editor.html:191
+msgid "Coaching Points"
+msgstr "训练点"
+
+#: drill.html:20
+#: editor.html:225
+#: session.html:25
+msgid "Color"
+msgstr "颜色"
+
+#: editor.html:48
+msgid "Colors"
+msgstr "颜色"
+
+#: all.js:2003
+#: all.js:2175
+msgid "Copy"
+msgstr "复制"
+
+#: drill.html:13
+#: drill.html:133
+#: drill.html:85
+msgid "Copy to My Drills"
+msgstr "复制到我的训练"
+
+#: session.html:100
+#: session.html:254
+msgid "Copy to My Sessions"
+msgstr "复制到我的学习项目"
+
+#: drill.html:137
+#: session.html:332
+msgid "Created with"
+msgstr "创建带"
+
+#: directives/drills.html:36
+#: directives/sessiondrills.html:26
+#: directives/sessions.html:26
+#: session.html:151
+#: session.html:210
+#: session.html:233
+#: session.html:293
+#: session.html:53
+#: session.html:78
+msgid "Date"
+msgstr "日期"
+
+#: all.js:1891
+#: all.js:1923
+#: all.js:2003
+#: all.js:2048
+msgid "Delete"
+msgstr "删除"
+
+#: all.js:305
+msgid "Dribble"
+msgstr "带球"
+
+#: drillprint.html:5
+msgid "Drill Print"
+msgstr "训练打印"
+
+#: directives/sessions.html:74
+msgid "drills"
+msgstr "训练"
+
+#: directives/drills.html:4
+#: directives/sessiondrills.html:4
+#: import.html:18
+#: import.html:37
+#: import.html:64
+#: sessionprint.html:7
+msgid "Drills"
+msgstr "训练"
+
+#: session.html:17
+msgid "Drills per page"
+msgstr "每页安排的训练"
+
+#: directives/drills.html:78
+#: directives/sessiondrills.html:76
+#: drill.html:38
+#: session.html:143
+#: session.html:216
+#: session.html:240
+#: session.html:288
+#: session.html:59
+#: session.html:86
+msgid "Duration"
+msgstr "时长"
+
+#: all.js:1891
+#: all.js:2175
+#: session.html:249
+#: session.html:95
+msgid "Edit"
+msgstr "编辑"
+
+#: directives/drills.html:96
+#: directives/sessiondrills.html:106
+msgid "Edit Parameters"
+msgstr "编辑参数"
+
+#: all.js:2003
+msgid "Editor"
+msgstr "编辑器"
+
+#: login.html:9
+msgid "Email"
+msgstr "邮箱"
+
+#: editor.html:94
+msgid "Equipment"
+msgstr "设备"
+
+#: import.html:50
+msgid "failed to import"
+msgstr "导入失败"
+
+#: directives/drills.html:84
+#: directives/sessiondrills.html:82
+#: drill.html:42
+msgid "Field Size"
+msgstr "球场大小"
+
+#: import.html:21
+msgid "File upload failed. Please try again."
+msgstr "文件上传失败。请重试。"
+
+#: settings.html:14
+msgid "Full Name"
+msgstr "全名"
+
+#: editor.html:74
+msgid "Goals"
+msgstr "进球数"
+
+#: all.js:305
+msgid "Highlight"
+msgstr "重点"
+
+#: base.html:5
+msgid "Home"
+msgstr "主页"
+
+#: base.html:6
+msgid "Import"
+msgstr "导入"
+
+#: import.html:10
+msgid "Import completed"
+msgstr "导入完成"
+
+#: import.html:9
+msgid "Import Drills &amp; Sessions to library"
+msgstr "将训练和学习项目导入到收藏"
+
+#: import.html:7
+msgid "Importing"
+msgstr "导入中"
+
+#: all.js:968
+msgid "Insert Name of Drill Here"
+msgstr "在这里插入训练名称"
+
+#: directives/sessiondrills.html:235
+#: directives/sessiondrills.html:247
+#: drill.html:124
+#: drill.html:77
+#: editor.html:187
+msgid "Instructions"
+msgstr "说明"
+
+#: settings.html:24
+msgid "Language"
+msgstr "语言"
+
+#: base.html:49
+#: base.html:7
+msgid "Library"
+msgstr "收藏"
+
+#: editor.html:237
+msgid "Line Thickness"
+msgstr "线宽"
+
+#: login.html:32
+#: login.html:5
+msgid "Login"
+msgstr "登录"
+
+#: base.html:20
+msgid "Logout"
+msgstr "退出"
+
+#: settings.html:55
+msgid "Maximum 5MB"
+msgstr "最大5 MB"
+
+#: directives/drills.html:26
+#: directives/sessiondrills.html:16
+#: directives/sessions.html:16
+#: session.html:119
+#: session.html:273
+msgid "Name"
+msgstr "名称"
+
+#: directives/drills.html:18
+#: directives/sessiondrills.html:11
+msgid "New Drill"
+msgstr "新的训练"
+
+#: directives/sessions.html:11
+msgid "New Session"
+msgstr "新的学习项目"
+
+#: session.html:128
+#: session.html:245
+#: session.html:277
+#: session.html:91
+msgid "Notes"
+msgstr "说明"
+
+#: directives/sessiondrills.html:88
+msgid "Order"
+msgstr "命令"
+
+#: login.html:21
+msgid "Password"
+msgstr "密码"
+
+#: all.js:305
+msgid "Pen"
+msgstr "笔"
+
+#: all.js:305
+msgid "Player Path"
+msgstr "球员轨迹"
+
+#: editor.html:46
+msgid "Players"
+msgstr "球员"
+
+#: all.js:2003
+#: base.html:41
+#: drill.html:132
+#: drill.html:8
+#: drill.html:84
+#: session.html:102
+#: session.html:256
+#: session.html:9
+msgid "Print"
+msgstr "打印"
+
+#: base.html:17
+msgid "Profile"
+msgstr "简介"
+
+#: all.js:305
+msgid "Rectangle"
+msgstr "矩形"
+
+#: all.js:2208
+msgid "Remove"
+msgstr "移除"
+
+#: all.js:2175
+msgid "Remove from session"
+msgstr "从学习项目中移除"
+
+#: base.html:33
+#: directives/drills.html:22
+#: drill.html:50
+#: session.html:166
+#: session.html:306
+#: settings.html:71
+msgid "Save"
+msgstr "保存"
+
+#: base.html:42
+msgid "Save As"
+msgstr "另存为"
+
+#: base.html:34
+#: directives/drills.html:110
+#: directives/sessiondrills.html:123
+#: directives/sessions.html:53
+#: drill.html:51
+#: session.html:177
+#: session.html:308
+#: settings.html:74
+msgid "Saving..."
+msgstr "保存中..."
+
+#: directives/drills.html:19
+msgid "Search Drills"
+msgstr "搜索训练"
+
+#: directives/sessions.html:12
+msgid "Search Sessions"
+msgstr "搜索学习项目"
+
+#: directives/drills.html:134
+#: directives/sessiondrills.html:269
+#: directives/sessions.html:78
+msgid "Select"
+msgstr "选择"
+
+#: all.js:305
+msgid "Select & Drag"
+msgstr "选择并拖动"
+
+#: editor.html:203
+msgid "Select and Draw"
+msgstr "选择并拖动"
+
+#: directives/drills.html:138
+msgid "Selected"
+msgstr "选中"
+
+#: import.html:58
+msgid "Session"
+msgstr "学习项目"
+
+# 学习项目规划器4.0
+#: drill.html:137
+#: session.html:332
+msgid "Session Planner 4.0"
+msgstr "Session Planner 4.0"
+
+#: sessionprint.html:22
+msgid "Session Print Preview"
+msgstr ""
+
+#: session.html:183
+#: session.html:314
+msgid "Session Saved"
+msgstr "保存的学习项目"
+
+#: directives/sessions.html:4
+#: import.html:17
+msgid "Sessions"
+msgstr "学习项目"
+
+#: directives/drills.html:72
+#: directives/sessiondrills.html:70
+#: directives/sessions.html:62
+#: settings.html:9
+msgid "Settings"
+msgstr "设置"
+
+#: directives/sessiondrills.html:234
+#: directives/sessiondrills.html:244
+#: drill.html:122
+#: drill.html:75
+#: editor.html:183
+msgid "Setup"
+msgstr "创建"
+
+#: all.js:305
+msgid "Shape"
+msgstr "形状"
+
+#: all.js:2003
+#: all.js:2175
+#: session.html:252
+#: session.html:98
+#: share.html:12
+#: share.html:3
+msgid "Share"
+msgstr "分享"
+
+#: drill.html:137
+#: session.html:332
+msgid "soccerspecific.com"
+msgstr ""
+
+#: settings.html:61
+msgid "Something went wrong!"
+msgstr "出现错误了！"
+
+#: session.html:136
+#: session.html:213
+#: session.html:236
+#: session.html:283
+#: session.html:56
+#: session.html:82
+msgid "Team"
+msgstr "团队"
+
+#: editor.html:111
+msgid "Text"
+msgstr "文本"
+
+#: all.js:305
+msgid "Text Box"
+msgstr "文本框"
+
+#: base.html:80
+msgid "This application is not tested or compatible with your browser, please use the latest version of a supported browser."
+msgstr "本应用未在您的浏览器上测试过，或不兼容您的浏览器，请使用最新版本的受支持浏览器。"
+
+#: all.js:305
+msgid "Triangle"
+msgstr "三角形"
+
+#: editor.html:179
+msgid "Type it up"
+msgstr "打印成文"
+
+#: directives/drills.html:102
+#: directives/sessiondrills.html:112
+msgid "Update"
+msgstr "更新"
+
+#: settings.html:53
+msgid "Upload New Logo"
+msgstr "上传新徽标"
+
+#: import.html:11
+msgid "Uploading file"
+msgstr "上传文件中"
+
+#: all.js:2175
+#: sessionprint.html:13
+msgid "View"
+msgstr "查看"
+
+#: base.html:80
+msgid "Warning!"
+msgstr "警告！"
+
+#: directives/sessiondrills.html:42
+msgid "You haven't added any Drills"
+msgstr "您还未添加训练"
+
+#: directives/drills.html:52
+msgid "You haven't created any Drills"
+msgstr "您还未创建训练"
+
+#: directives/sessions.html:41
+msgid "You haven't created any Session"
+msgstr "您还未创建学习项目"
+
+#: editor.html:2
+msgid "Your browser does not have enough width, should have atleast 1024px."
+msgstr "您的浏览器宽度不足，应至少为1024像素。"

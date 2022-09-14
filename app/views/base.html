@@ -1,0 +1,86 @@
+<div class="container-fluid" ng-if="!hideEverything">
+  <div class="row theme-bg on-print">
+    <div class="col-md-12 header menu-{{rview.mainMenu}}">
+      <ul ng-if="user.id && rview.mainMenu=='main'">
+        <li><a ui-sref="app.home" ng-if="user.id && rview.menuItem!='drill'"><i class="fa fa-home"></i><span translate>Home</span></a></li>
+        <li><a ui-sref="app.import" ng-if="user.id && rview.menuItem =='library'"><i class="fa fa-upload"></i><span translate>Import</span></a></li>
+        <li><a ui-sref="app.library" ng-if="user.id && rview.menuItem!='library'"><i class="fa fa-book"></i><span translate>Library</span></a></li>
+        
+        <!--
+        <li class="hidden-sm hidden-xs" ><a href="#">Sessions</a></li>
+        <li class="hidden-sm hidden-xs" ><a href="#">Drills</a></li>
+        <li class="hidden-sm hidden-xs" ><a href="#">Print</a></li>
+        -->
+        <!-- <li><a ui-sref="app.settings" ng-class="{'active':rview.menuItem=='settings'}"  href="#"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> <span translate>Settings</span></a></li> -->
+        <li>
+          <a ui-sref="app.settings" ng-class="{'active':rview.menuItem=='settings'}"  href="#">
+            <img ng-src="../imgs/flag/{{user.local}}.png" height="23" width="23" style="margin-right:5px;">     <span translate>Profile</span>
+          </a>
+        </li>
+        <li class="hidden-sm hidden-xs" ><a href="" ng-click="doLogout()"><span translate>Logout</span></a></li>
+      </ul>
+      <!-- <div class="dropdown" ng-if="user.id && rview.mainMenu=='drill'">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          more
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Language</a></li>
+        </ul>
+      </div> -->
+      <div ng-if="user.id && rview.mainMenu=='drill' && !user.isDemo" class="save-btn-holder" style="float:right;margin-top:3px;disblay:inline-block; margin-left:10px;">
+        <a class="sp-btn green" href="" ng-click="saveDrill()" ng-hide="rview.actionSaveStarted" translate>Save</a>
+        <a class="sp-btn green for-disabled" disabled ng-show="rview.actionSaveStarted" translate>
+          Saving...
+        </a>
+      </div>
+      <ul ng-if="user.id && rview.mainMenu=='drill'" style="padding:0;margin-left:10px;">
+        <li class="hidden-sm hidden-xs" ng-if="showBackBtn"><a href="" ng-click="back()" translate>Back</a></li>
+        <li class="hidden-sm hidden-xs" ><a href="" ng-click="clearDrill()" translate>Clear</a></li>
+        <li class="hidden-sm hidden-xs" ><a href="" ng-click="printDrill()" translate>Print</a></li>
+        <li class="hidden-sm hidden-xs" ng-show="rview.isEdit && !user.isDemo"><a href="" ng-click="saveAsDrill()" ng-hide="rview.actionSaveStarted" translate>Save As</a></li>
+        <!-- <li class="hidden-sm hidden-xs" >
+
+        </li> -->
+      </ul>
+      <ul class="main-menu-holder" ng-if="user.id && rview.mainMenu=='drill'" style="border-right:1px solid rgba(255, 255, 255, 0.5);padding-right:10px;margin-top: -4px;height: 48px;padding-top: 4px;">
+        <li>
+          <a ui-sref="app.library"><i class="fa fa-book"></i> <span translate>Library</span></a>
+        </li>
+        <li>
+          <a ui-sref="app.settings" ng-class="{'active':rview.menuItem=='settings'}"  href="#">
+            <img ng-src="../imgs/flag/{{user.local}}.png" height="23" width="23">
+          </a>
+        </li>
+      </ul>
+      <div class="imgbox hidden-sm  hidden-xs" ng-if="rview.largeLogo">
+        
+          <img  ui-sref="app.home" src="/imgs/soccer-specific-log-wide-white.png" alt="Soccer Specific Logo" />
+        
+      </div>
+      <div class="imgbox-small" ng-class="{'visible-sm visible-xs':rview.largeLogo}">
+        
+          <img ui-sref="app.home" src="/imgs/soccer-specific-logo-square.png" alt="Soccer Specific Logo" />
+        
+      </div>
+
+      <div class="pagetitle" ng-if="rview.displayTitle">
+        <h1 ng-bind="rview.displayTitle"></h1>
+      </div>
+
+      <div class="pagetitle" ng-if="rview.editableTitleData">
+        <input  type="text" ng-keydown="keyDownOperations($event)" class="titleinput clean" ng-model="rview.editableTitleData.name" ng-class="{ 'increse-width' : !rview.isEdit}">
+      </div>
+    </div>
+    <div class="col-md-12 empty-bar hidden-sm  hidden-xs"  ng-if="rview.largeLogo">&nbsp;</div>
+  </div>
+  <div class="browser-warning-box" ng-if="showBrowserWarning">
+    <div class="alert alert-warning">
+      <strong translate>Warning!</strong> <span translate>This application is not tested or compatible with your browser, please use the latest version of a supported browser.</span> <a href="http://browsehappy.com">http://browsehappy.com</a>.
+    </div>
+  </div>
+  <div ui-view="content">
+  </div>
+  <div class="greenbox">&nbsp;</div>
+</div>

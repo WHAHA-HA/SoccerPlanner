@@ -1,0 +1,22 @@
+<div class="screen screen-chooser">
+  <div class="row">
+
+    <div class="col-md-4 col-md-offset-4" ng-if="mode=='session'">
+      <sp-sessions
+        drill-key="drillkey"
+        mode="chooser"
+        sessions="view.sessions"
+        on-session-selected="onSessionSelected(session)"></sp-sessions>
+    </div>
+
+    <div class="col-md-8 col-md-offset-2" ng-if="mode=='drill'">
+      <sp-drills
+        session-key="sessionkey"
+        mode="chooser"
+        drills="view.drills"
+        added-drills="view.addedDrills"
+        on-drill-selected="onDrillSelected(drill)"
+        on-drills-add="onDrillsAdd(drills, index)"></sp-drills>
+    </div>
+  </div>
+</div>

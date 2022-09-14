@@ -1,0 +1,27 @@
+<div class="screen screen-session">
+  <div class="row" ng-if="view.ready">
+    <div class="col-md-12" >
+      <div class="box-level-1 padded session-box active-session">
+        <h2>{{session.name}}</h2>
+        <div class="subtitle">
+          <span>{{session.date | amDateFormat:'MMM DD, YYYY'}}</span> <span>({{session.drills.length}} <span translate>Drills</span>)</span>
+        </div>
+        <p>
+          {{session.description}}
+        </p>
+        <div class="tools small-tools">
+          <a class="sp-btn green"
+          ui-sref="app.session({sessionkey:session.key})" translate>View</a>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+
+    </div>
+
+    <div class="col-md-12">
+      <h2 translate>Session Print Preview</h2>
+      <!-- <sp-drills drills="view.drills"></sp-drills> -->
+    </div>
+
+  </div>
+</div>

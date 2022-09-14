@@ -1,0 +1,574 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language: es\n"
+"Language-Team: \n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+
+#: drill.html:62
+#: session.html:37
+msgid "<strong>Use A4</strong> paper size for best print output"
+msgstr "Usar tamaño de <strong>papel A4</strong> para el mejor resultado de impresión"
+
+#: session.html:104
+#: session.html:258
+msgid "Add Drill"
+msgstr "Añadir ejercicio"
+
+#: editor.html:42
+msgid "ADD TO FIELD"
+msgstr "AÑADIR AL CAMPO"
+
+# 
+#: all.js:2003
+msgid "Add to Session"
+msgstr "Añadir al Sesión"
+
+#: share.html:13
+msgid "Anyone who has the below URL can view this Drill and copy to their library. Copy and Paste permalink to send via email"
+msgstr "Cualquier persona que tenga la URL a continuación se puede ver el Taladro y copiar a su biblioteca ."
+
+#: share.html:4
+msgid "Anyone who has the below URL can view this Session and copy to their library. Copy and Paste permalink to send via email"
+msgstr "Cualquier persona que tenga la URL a continuación se puede ver esta sesión y copiar a su biblioteca ."
+
+#: all.js:1921
+#: all.js:2046
+msgid "Are you sure you want to delete?"
+msgstr "¿Está seguro de que quiere borrarla?"
+
+#: all.js:2206
+msgid "Are you sure you want to remove this drill from the session?"
+msgstr "¿Está seguro de que quiere eliminar este ejercicio de la sesión?"
+
+#: editor.html:272
+msgid "Arrow Head"
+msgstr "Punta de flecha"
+
+#: base.html:39
+#: drill.html:131
+#: drill.html:83
+msgid "Back"
+msgstr "Volver"
+
+#: all.js:305
+msgid "Ball Path"
+msgstr "Ruta de la bola"
+
+#: drill.html:24
+#: session.html:29
+msgid "Black &amp; White"
+msgstr "Blanco y negro"
+
+#: all.js:1922
+#: all.js:2047
+#: all.js:2207
+#: drill.html:11
+#: session.html:12
+#: session.html:173
+#: session.html:175
+#: session.html:307
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: directives/drills.html:104
+#: directives/sessiondrills.html:114
+#: login.html:33
+msgid "Checking..."
+msgstr "Comprobando..."
+
+#: import.html:15
+msgid "Choose a drill file or zip file which has both session and drills."
+msgstr "Elegir un archivo de ejercicios (drill) o un archivo zip que tenga tanto sesiones como ejercicios."
+
+#: editor.html:10
+msgid "Choose a field"
+msgstr "Elegir un campo"
+
+#: directives/drills.html:11
+#: directives/sessiondrills.html:5
+msgid "Choose Drill"
+msgstr "Elegir ejercicio"
+
+#: import.html:27
+msgid "Choose File"
+msgstr "Elegir archivo"
+
+#: directives/sessions.html:5
+msgid "Choose session"
+msgstr "Elegir sesión"
+
+# 
+#: all.js:305
+msgid "Circle"
+msgstr "Círculo"
+
+#: base.html:40
+msgid "Clear"
+msgstr "Borrar"
+
+#: settings.html:35
+msgid "Club Logo"
+msgstr "Logotipo del club"
+
+#: directives/sessiondrills.html:236
+#: directives/sessiondrills.html:250
+#: drill.html:126
+#: drill.html:79
+#: editor.html:191
+msgid "Coaching Points"
+msgstr "Puntos de formación"
+
+#: drill.html:20
+#: editor.html:225
+#: session.html:25
+msgid "Color"
+msgstr "Color"
+
+#: editor.html:48
+msgid "Colors"
+msgstr "Colores"
+
+#: all.js:2003
+#: all.js:2175
+msgid "Copy"
+msgstr "Copiar"
+
+#: drill.html:13
+#: drill.html:133
+#: drill.html:85
+msgid "Copy to My Drills"
+msgstr "Copiar a Mis ejercicios"
+
+#: session.html:100
+#: session.html:254
+msgid "Copy to My Sessions"
+msgstr "Copiar a Mis sesiones"
+
+#: drill.html:137
+#: session.html:332
+msgid "Created with"
+msgstr "Creado con"
+
+#: directives/drills.html:36
+#: directives/sessiondrills.html:26
+#: directives/sessions.html:26
+#: session.html:151
+#: session.html:210
+#: session.html:233
+#: session.html:293
+#: session.html:53
+#: session.html:78
+msgid "Date"
+msgstr "Fecha"
+
+#: all.js:1891
+#: all.js:1923
+#: all.js:2003
+#: all.js:2048
+msgid "Delete"
+msgstr "Borrar"
+
+#: all.js:305
+msgid "Dribble"
+msgstr "Regate"
+
+#: drillprint.html:5
+msgid "Drill Print"
+msgstr "Impresión del ejercicio"
+
+# 
+#: directives/sessions.html:74
+msgid "drills"
+msgstr "ejercicios"
+
+# 
+#: directives/drills.html:4
+#: directives/sessiondrills.html:4
+#: import.html:18
+#: import.html:37
+#: import.html:64
+#: sessionprint.html:7
+msgid "Drills"
+msgstr "Ejercicios"
+
+#: session.html:17
+msgid "Drills per page"
+msgstr "Ejercicios por página"
+
+#: directives/drills.html:78
+#: directives/sessiondrills.html:76
+#: drill.html:38
+#: session.html:143
+#: session.html:216
+#: session.html:240
+#: session.html:288
+#: session.html:59
+#: session.html:86
+msgid "Duration"
+msgstr "Duración"
+
+#: all.js:1891
+#: all.js:2175
+#: session.html:249
+#: session.html:95
+msgid "Edit"
+msgstr "Editar"
+
+#: directives/drills.html:96
+#: directives/sessiondrills.html:106
+msgid "Edit Parameters"
+msgstr "Editar parámetros"
+
+#: all.js:2003
+msgid "Editor"
+msgstr "Editor"
+
+#: login.html:9
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: editor.html:94
+msgid "Equipment"
+msgstr "Equipamiento"
+
+#: import.html:50
+msgid "failed to import"
+msgstr "no se ha podido importar"
+
+#: directives/drills.html:84
+#: directives/sessiondrills.html:82
+#: drill.html:42
+msgid "Field Size"
+msgstr "Tamaño del campo"
+
+#: import.html:21
+msgid "File upload failed. Please try again."
+msgstr "Error al subir archivo. Por favor, pruebe de nuevo."
+
+#: settings.html:14
+msgid "Full Name"
+msgstr "Nombre completo"
+
+#: editor.html:74
+msgid "Goals"
+msgstr "Porterías"
+
+#: all.js:305
+msgid "Highlight"
+msgstr "Destacar"
+
+#: base.html:5
+msgid "Home"
+msgstr "Inicio"
+
+#: base.html:6
+msgid "Import"
+msgstr "Importar"
+
+#: import.html:10
+msgid "Import completed"
+msgstr "Importación completada"
+
+#: import.html:9
+msgid "Import Drills &amp; Sessions to library"
+msgstr "Importar ejercicios y sesiones a la biblioteca"
+
+#: import.html:7
+msgid "Importing"
+msgstr "Importando"
+
+#: all.js:968
+msgid "Insert Name of Drill Here"
+msgstr "Introduzca aquí el nombre del ejercicio"
+
+#: directives/sessiondrills.html:235
+#: directives/sessiondrills.html:247
+#: drill.html:124
+#: drill.html:77
+#: editor.html:187
+msgid "Instructions"
+msgstr "Instrucciones"
+
+#: settings.html:24
+msgid "Language"
+msgstr "Idioma"
+
+#: base.html:49
+#: base.html:7
+msgid "Library"
+msgstr "Biblioteca"
+
+#: editor.html:237
+msgid "Line Thickness"
+msgstr "Grosor de línea"
+
+#: login.html:32
+#: login.html:5
+msgid "Login"
+msgstr "Iniciar sesión"
+
+#: base.html:20
+msgid "Logout"
+msgstr "Cerrar sesión"
+
+#: settings.html:55
+msgid "Maximum 5MB"
+msgstr "Máximo 5 MB"
+
+#: directives/drills.html:26
+#: directives/sessiondrills.html:16
+#: directives/sessions.html:16
+#: session.html:119
+#: session.html:273
+msgid "Name"
+msgstr "Nombre"
+
+#: directives/drills.html:18
+#: directives/sessiondrills.html:11
+msgid "New Drill"
+msgstr "Nuevo ejercicio"
+
+#: directives/sessions.html:11
+msgid "New Session"
+msgstr "Nueva sesión"
+
+#: session.html:128
+#: session.html:245
+#: session.html:277
+#: session.html:91
+msgid "Notes"
+msgstr "Notas"
+
+#: directives/sessiondrills.html:88
+msgid "Order"
+msgstr "Orden"
+
+#: login.html:21
+msgid "Password"
+msgstr "Contraseña"
+
+#: all.js:305
+msgid "Pen"
+msgstr "Bolígrafo"
+
+#: all.js:305
+msgid "Player Path"
+msgstr "Ruta del jugador"
+
+#: editor.html:46
+msgid "Players"
+msgstr "Jugadores"
+
+#: all.js:2003
+#: base.html:41
+#: drill.html:132
+#: drill.html:8
+#: drill.html:84
+#: session.html:102
+#: session.html:256
+#: session.html:9
+msgid "Print"
+msgstr "Imprimir"
+
+#: base.html:17
+msgid "Profile"
+msgstr "Perfil"
+
+#: all.js:305
+msgid "Rectangle"
+msgstr "Rectángulo"
+
+#: all.js:2208
+msgid "Remove"
+msgstr "Eliminar"
+
+# 
+#: all.js:2175
+msgid "Remove from session"
+msgstr "Eliminar de sesión"
+
+#: base.html:33
+#: directives/drills.html:22
+#: drill.html:50
+#: session.html:166
+#: session.html:306
+#: settings.html:71
+msgid "Save"
+msgstr "Guardar"
+
+#: base.html:42
+msgid "Save As"
+msgstr "Guardar como"
+
+#: base.html:34
+#: directives/drills.html:110
+#: directives/sessiondrills.html:123
+#: directives/sessions.html:53
+#: drill.html:51
+#: session.html:177
+#: session.html:308
+#: settings.html:74
+msgid "Saving..."
+msgstr "Guardando..."
+
+# 
+#: directives/drills.html:19
+msgid "Search Drills"
+msgstr "Buscar Ejercicio"
+
+# 
+#: directives/sessions.html:12
+msgid "Search Sessions"
+msgstr "Buscar Sesión"
+
+#: directives/drills.html:134
+#: directives/sessiondrills.html:269
+#: directives/sessions.html:78
+msgid "Select"
+msgstr "Seleccionar"
+
+#: all.js:305
+msgid "Select & Drag"
+msgstr "Seleccionar y arrastrar"
+
+#: editor.html:203
+msgid "Select and Draw"
+msgstr "Seleccionar y dibujar"
+
+#: directives/drills.html:138
+msgid "Selected"
+msgstr "Seleccionado"
+
+#: import.html:58
+msgid "Session"
+msgstr "Sesión"
+
+#: drill.html:137
+#: session.html:332
+msgid "Session Planner 4.0"
+msgstr "Session Planner 4.0"
+
+#: sessionprint.html:22
+msgid "Session Print Preview"
+msgstr "Vista previa de la impresión de la sesión"
+
+#: session.html:183
+#: session.html:314
+msgid "Session Saved"
+msgstr "Sesión guardada"
+
+#: directives/sessions.html:4
+#: import.html:17
+msgid "Sessions"
+msgstr "Sesiones"
+
+#: directives/drills.html:72
+#: directives/sessiondrills.html:70
+#: directives/sessions.html:62
+#: settings.html:9
+msgid "Settings"
+msgstr "Ajustes"
+
+#: directives/sessiondrills.html:234
+#: directives/sessiondrills.html:244
+#: drill.html:122
+#: drill.html:75
+#: editor.html:183
+msgid "Setup"
+msgstr "Configuración"
+
+#: all.js:305
+msgid "Shape"
+msgstr "Forma"
+
+#: all.js:2003
+#: all.js:2175
+#: session.html:252
+#: session.html:98
+#: share.html:12
+#: share.html:3
+msgid "Share"
+msgstr "Compartir"
+
+#: drill.html:137
+#: session.html:332
+msgid "soccerspecific.com"
+msgstr "soccerspecific.com"
+
+#: settings.html:61
+msgid "Something went wrong!"
+msgstr "¡Algo ha ido mal!"
+
+#: session.html:136
+#: session.html:213
+#: session.html:236
+#: session.html:283
+#: session.html:56
+#: session.html:82
+msgid "Team"
+msgstr "Equipo"
+
+#: editor.html:111
+msgid "Text"
+msgstr "Texto"
+
+#: all.js:305
+msgid "Text Box"
+msgstr "Cuadro de texto"
+
+#: base.html:80
+msgid "This application is not tested or compatible with your browser, please use the latest version of a supported browser."
+msgstr "Esta aplicación no se ha probado o no es compatible con su navegador, por favor, utilice la última versión de un navegador compatible."
+
+#: all.js:305
+msgid "Triangle"
+msgstr "Triángulo"
+
+#: editor.html:179
+msgid "Type it up"
+msgstr "Escribirlo"
+
+#: directives/drills.html:102
+#: directives/sessiondrills.html:112
+msgid "Update"
+msgstr "Actualizar"
+
+#: settings.html:53
+msgid "Upload New Logo"
+msgstr "Subir nuevo logotipo"
+
+#: import.html:11
+msgid "Uploading file"
+msgstr "Subiendo archivo"
+
+#: all.js:2175
+#: sessionprint.html:13
+msgid "View"
+msgstr "Ver"
+
+#: base.html:80
+msgid "Warning!"
+msgstr "¡Atención!"
+
+#: directives/sessiondrills.html:42
+msgid "You haven't added any Drills"
+msgstr "No has añadido ningún ejercicio"
+
+#: directives/drills.html:52
+msgid "You haven't created any Drills"
+msgstr "No has creado ningún ejercicio"
+
+#: directives/sessions.html:41
+msgid "You haven't created any Session"
+msgstr "No has creado ningún sesión"
+
+#: editor.html:2
+msgid "Your browser does not have enough width, should have atleast 1024px."
+msgstr "Su navegador no tiene anchura suficiente, debería tener al menos 1024 px."

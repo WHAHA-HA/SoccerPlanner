@@ -1,0 +1,12 @@
+<div class="screen screen-home">
+  <div class="row">
+    <div class="col-md-4" ng-if="view.ready">
+      <sp-sessions sessions="view.sessions" active-sort="activeSort"></sp-sessions>
+    </div>
+
+    <div class="col-md-8" ng-if="view.ready">
+      <sp-drills drills="view.drills" active-sort="activeSort" ></sp-drills>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,18 @@
+<div class="screen-share">
+  <div class="share-session" ng-if="showSessionShare">
+    <h3 translate>Share</h3>
+    <p translate>
+      Anyone who has the below URL can view this Session and copy to their library. Copy and Paste permalink to send via email
+    </p>
+    <div class="code">
+      {{shareUrl}}
+    </div>
+  </div>
+  <div class="share-drill" ng-if="!showSessionShare">
+    <h3 translate>Share</h3>
+    <p translate>
+      Anyone who has the below URL can view this Drill and copy to their library. Copy and Paste permalink to send via email
+    </p>
+    <textarea cols="40" rows="2" type="text" name="shareurl" value="Norway" readonly class="code" ng-model="shareUrl"  ></textarea>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+.theme-plain{
+  $tbg: rgb(243, 243, 243);
+  $thead: #5856D6;
+  // $thead: rgba(0,0,0,0.5);
+  $tcolor: #fcfcfc;
+
+  background: $tbg;
+
+  .theme-bg{
+    background: $thead;
+  }
+
+  .header{
+    margin-bottom: 10px;
+    ul li a{
+      color: $tcolor;
+    }
+  }
+
+  .sp-breadcrumb{
+    margin-bottom: 10px;
+
+    ul{
+      color: rgba(255, 255, 255, 0.4);
+      li a{
+        color: $tcolor;
+      }
+    }
+  }
+
+  .screen{
+    margin-top: 5px;
+  }
+}
+
+h3 {
+  font-weight: 300;
+}

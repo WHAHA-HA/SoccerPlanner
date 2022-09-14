@@ -1,0 +1,345 @@
+<div class="screen screen-session" ng-class="{'screen-print':view.printView}">
+  <div ng-show="view.printView && view.session.drills.length == 0" class="empty-div-wrapper" style="width:880px; margin:auto; margin-top:30px;">
+    <div class="alert alert-warning" role="alert">You haven't added any <strong>Drills</strong></div>
+  </div>
+  <div class="box-level-1 on-print top-tool"  ng-show="view.printView && view.session.drills.length != 0">
+    <div class="row">
+      <div class="col-md-4">
+        <a class="sp-btn green" onClick="window.print();">
+          <span class="ng-scope" translate>Print</span>
+        </a>
+        <a class="sp-btn green" ng-click="back()">
+          <span class="ng-scope" translate>Cancel</span>
+        </a>
+      </div>
+      <div class="col-md-8">
+        <div class="wrapp">
+          <span class="text-opt" translate>Drills per page</span>:
+          <div class="form-group">
+            <select class="form-control  clean" ng-options="list for list in data.pageSelect" ng-model="data.pageOption" ng-change="SelectedView()">
+            </select>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" ng-model="view.showBlack" value="0" >
+              <span translate>Color</span>
+            </label>
+            <label>
+              <input type="radio" ng-model="view.showBlack" value="1">
+              <span translate>Black &amp; White</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="box-level-1 on-print top-tool"  ng-show="view.printView && view.session.drills.length != 0" style="margin-top: 0;padding: 0;background-color: inherit;">
+    <div class="alert alert-warning" role="alert" translate><strong>Use A4</strong> paper size for best print output</div>
+  </div>
+  <div class="row" ng-if="view.ready">
+    <div ng-class="{'A-4':view.printView}" ng-hide="view.printView">
+      <div class="row header-print">
+        <div class="col-sm-3 col-md-3">
+          <div class="session-user-logo">
+            
+            <img src="{{author.logoUrl}}" class="center-block"/>
+          </div>
+        </div>
+        <div class="col-sm-9 col-md-9">
+          <h2 ng-show="view.printView" class="title-of-page"
+              ng-class="{'tex-left':'view.printView'}"
+          >{{view.heading}}</h2>
+          <div class="cols" ng-show="view.printView">
+            <div class="date" ng-class="{'split-30':view.printView}">
+              <span translate>Date</span>: {{view.session.date | amUtc | amDateFormat:'MMM DD, YYYY'}}
+            </div>
+            <div class="team" ng-class="{'split-30':view.printView}">
+              <span translate>Team</span>: {{view.session.team}}
+            </div>
+            <div class="duration" ng-class="{'split-30':view.printView}">
+              <span translate>Duration</span>: {{view.session.duration}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div ng-class="{'col-md-12':view.createMode, 'col-md-4': !view.createMode, 'full-width':view.printView}"
+        ng-show="!view.printView"
+      >
+        <div class="box-level-1 padded session-box">
+          <!-- <a class="sp-btn green bck-btn" onClick="window.history.back()" translate>Back</a> -->
+          <!-- <div class="close-btn"><i class="fa fa-times"></i></div> -->
+          <h2 ng-show="!view.printView">{{view.heading}}</h2>
+
+          <div ng-if="view.readmode" class="readmode">
+            <!-- <div class="subtitle">
+              <span>{{view.session.date | amUtc | amDateFormat:'MMM DD, YYYY'}}</span> <span translate>({{view.session.drills.length}} items)</span>
+            </div> -->
+            <div class="cols" ng-show="!view.printView">
+              <div class="date" ng-class="{'split-30':view.printView}">
+                <span translate>Date</span>:
+                <span>{{view.session.date | amUtc | amDateFormat:'MMM DD, YYYY'}}</span>
+              </div>
+              <div class="team" ng-class="{'split-30':view.printView}">
+                <span translate>Team</span>:
+                <span>{{view.session.team}}</span>
+              </div>
+              <div class="duration" ng-class="{'split-30':view.printView}">
+                <span translate>Duration</span>:
+                <span>{{view.session.duration}}</span>
+              </div>
+            </div>
+            <p class="theme" ng-show="!view.printView">
+              <span translate>Notes</span>:
+              <span>{{view.session.description}}</span>
+            </p>
+            <div class="tools small-tools" ng-show="!view.printView">
+              <a class="sp-btn green"
+              ng-click="view.readmode=false;" ng-hide="view.shareMode" translate>Edit</a>
+
+              <a class="sp-btn green" ng-hide="view.shareMode" ng-click="showShare()" translate>Share</a>
+
+              <a class="sp-btn green" ng-show="view.shareMode" ng-click="copySession()" translate>Copy to My Sessions</a>
+
+              <a class="sp-btn green"
+                ng-click="printSession()"  translate>Print</a>
+              <a
+                class="sp-btn green" href="#"
+                ui-sref="app.chooser({
+                  sessionkey:view.session.key,
+                  drillkey:'default',
+                  mode:'drill',
+                  callback:'session'})"
+                 ng-hide="view.shareMode"
+               translate>Add Drill</a>
+
+            </div>
+            <div class="clearfix"></div>
+          </div>
+          <form ng-if="!view.readmode" ng-submit="doSave()" name="SessionCreateForm" novalidate class="session-create ">
+            <div class="form-group">
+              <label><span translate>Name</span> *</label>
+              <input  type="text" class="form-control clean"
+                      ng-model="input.name"
+                      required
+                      ng-class="{'required-field' : !SessionCreateForm.name.$pristine && SessionCreateForm.name.$invalid}"
+                      name="name">
+                      <!-- /" -->
+            </div>
+            <div class="form-group">
+              <label translate>Notes</label>
+              <textarea class="form-control clean" rows="8" cols="40" ng-model="input.description"
+                        name="description"
+              ></textarea>
+            </div>
+
+
+            <div class="form-group">
+              <label translate>Team</label>
+              <input  type="text" class="form-control clean"
+                      ng-model="input.team"
+                      name="team">
+            </div>
+
+            <div class="form-group">
+              <label translate>Duration</label>
+              <input  type="text" class="form-control clean"
+                      ng-model="input.duration"
+                      name="duration"
+              >
+            </div>
+
+            <div class="form-group">
+              <label translate>Date</label>
+              <datepicker date-format="MMMM dd, yyyy" date-set="{{input.date}}">
+                <input class="form-control clean" ng-model="input.date" type="text"
+                />
+
+              </datepicker>
+            </div>
+
+            <div class="clearfix">
+            </div>
+
+            <div class="alert alert-danger" ng-show="post.error">
+              <span>{{post.error}}</span>
+            </div>
+
+            <button type="submit"
+                    ng-hide="post.started"
+                    class="sp-btn green"
+                    ng-class="{'for-disabled': SessionCreateForm.$invalid}"
+                    ng-disabled="SessionCreateForm.$invalid"
+                    translate>Save</button>
+
+            <button ng-if="!view.session.key" class="sp-btn green" onClick="window.history.back()" translate>Cancel</button>
+
+            <button ng-hide="post.started || view.createMode" type="cancel" class="sp-btn green" ng-click="view.readmode=true;" translate>Cancel</button>
+
+            <div class="sp-btn green for-disabled" ng-show="post.started" translate>
+              Saving...
+            </div>
+
+          </form>
+
+          <div class="alert alert-success" ng-show="view.justsaved" translate>
+            Session Saved
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-8" ng-if="!view.createMode && view.ready" ng-class="{'full-width':view.printView}">
+        <sp-session-drills class="session-drills-box"
+          session-key="view.session.key"
+          is-share-mode = "view.shareMode"
+          drills="view.session.drills" mode="session" show-black="view.showBlack"></sp-drills>
+      </div>
+    </div>
+    <div ng-class="{'A-4':view.printView}" ng-repeat="page in data.selectedView" ng-show="view.printView">
+      <div class="inner-page">
+      <div class="row header-print">
+        <div class="col-sm-3 col-md-3">
+          <div class="session-user-logo">
+            <img src="{{author.logoUrl}}" class="center-block"/>
+          </div>
+        </div>
+        <div class="col-sm-9 col-md-9" ng-class="{'margLft' : 'isPrintView' }">
+          <h2 ng-show="view.printView" class="title-of-page"
+              ng-class="{'tex-left':'view.printView'}"
+          >{{view.heading}}</h2>
+          <div class="cols" ng-show="view.printView">
+            <div class="date" ng-class="{'split-30':view.printView}">
+              <span translate>Date</span>: <b>{{view.session.date | amUtc | amDateFormat:'MMM DD, YYYY'}}</b>
+            </div>
+            <div class="team" ng-class="{'split-30':view.printView}">
+              <span translate>Team</span>: <b>{{view.session.team}}</b>
+            </div>
+            <div class="duration" ng-class="{'split-30':view.printView}">
+              <span translate>Duration</span>: <b>{{view.session.duration}}</b>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div ng-class="{'col-md-12':view.createMode, 'col-md-4': !view.createMode, 'full-width':view.printView}"
+        ng-show="!view.printView"
+      >
+        <div class="box-level-1 padded session-box">
+          <h2 ng-show="!view.printView">{{view.heading}}</h2>
+
+          <div ng-if="view.readmode" class="readmode">
+            <!-- <div class="subtitle">
+              <span>{{view.session.date | amUtc | amDateFormat:'MMM DD, YYYY'}}</span> <span translate>({{view.session.drills.length}} items)</span>
+            </div> -->
+            <div class="cols" ng-show="!view.printView">
+              <div class="date" ng-class="{'split-30':view.printView}">
+                <span translate>Date</span>: <span>{{view.session.date | amUtc | amDateFormat:'MMM DD, YYYY'}}</span>
+              </div>
+              <div class="team" ng-class="{'split-30':view.printView}">
+                <span translate>Team</span>:
+                <span>{{view.session.team}}</span>
+              </div>
+              <div class="duration" ng-class="{'split-30':view.printView}">
+                <span translate>Duration</span>:
+                <span >{{view.session.duration}}</span>
+              </div>
+            </div>
+            <p class="theme" ng-show="!view.printView">
+              <span translate>Notes</span>:
+              <span>{{view.session.description}}</span>
+            </p>
+            <div class="tools small-tools" ng-show="!view.printView">
+              <a class="sp-btn green"
+              ng-click="view.readmode=false;" ng-hide="view.shareMode" translate>Edit</a>
+
+              <a class="sp-btn green" ng-hide="view.shareMode" ng-click="showShare()" translate>Share</a>
+
+              <a class="sp-btn green" ng-show="view.shareMode" ng-click="copySession()" translate>Copy to My Sessions</a>
+
+              <a class="sp-btn green"
+                ng-click="printSession()"  translate>Print</a>
+              <a
+                class="sp-btn green" href="#"
+                ui-sref="app.chooser({
+                  sessionkey:view.session.key,
+                  drillkey:'default',
+                  mode:'drill',
+                  callback:'session'})"
+                 ng-hide="view.shareMode"
+               translate>Add Drill</a>
+
+            </div>
+            <div class="clearfix"></div>
+          </div>
+          <form ng-if="!view.readmode">
+            <div class="form-group">
+              <label translate>Name</label>
+              <input type="text" class="form-control clean" ng-model="input.name" placeholder="">
+            </div>
+            <div class="form-group">
+              <label translate>Notes</label>
+              <textarea class="form-control clean" rows="8" cols="40" ng-model="input.description"></textarea>
+            </div>
+
+
+            <div class="form-group">
+              <label translate>Team</label>
+              <input type="text" class="form-control clean" ng-model="input.team" placeholder="">
+            </div>
+
+            <div class="form-group">
+              <label translate>Duration</label>
+              <input type="text" class="form-control clean" ng-model="input.duration" placeholder="">
+            </div>
+
+            <div class="form-group">
+              <label translate>Date</label>
+              <datepicker date-format="MMMM dd, yyyy" date-set="{{input.date}}">
+                <input class="form-control clean" ng-model="input.date" type="text"/>
+              </datepicker>
+            </div>
+
+            <div class="clearfix">
+            </div>
+
+            <div class="alert alert-danger" ng-show="post.error">
+              <span>{{post.error}}</span>
+            </div>
+
+            <button type="submit" ng-hide="post.started" class="sp-btn green" ng-click="doSave()" translate>Save</button>
+            <button ng-hide="post.started || view.createMode" class="sp-btn green" ng-click="view.readmode=true;" translate>Cancel</button>
+            <div class="sp-btn green for-disabled" ng-show="post.started" translate>
+              Saving...
+            </div>
+
+          </form>
+
+          <div class="alert alert-success" ng-show="view.justsaved" translate>
+            Session Saved
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-8" ng-if="!view.createMode" ng-class="{'full-width':view.printView}">
+        <!-- class="col-md-8" ng-if="!view.createMode" ng-class="{'full-width':view.printView}" -->
+        <sp-session-drills class="session-drills-box"
+          session-key="view.session.key"
+          is-print-view = "view.printView"
+          is-share-mode = "view.shareMode"
+          show-list = "data.pageOption"
+          ng-class="{'print-it-vie':view.printView}"
+          drills="page" mode="session" show-black="view.showBlack"></sp-drills>
+      </div>
+      <div class="footer-a4">
+        <div class="bar"><div class="line"></div></div>
+        <div class="copyrite-tex"><span translate>Created with </span> <b translate>Session Planner 4.0</b> | <b translate>soccerspecific.com</b></div>
+        <div class="logo">
+          <div class="img-wrap">
+            <img src="../imgs/soccer-specific-log-wide.png">
+          </div>
+        </div>
+      </div>
+      <div class="page-break"></div>
+    </div>
+    <div class="empty-border-div"></div>
+    </div>
+  </div>
+</div>

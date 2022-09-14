@@ -1,0 +1,152 @@
+<div
+  class="box-level-1 fill drills-list"
+  ng-class="{'session-chooser':(mode == 'chooser')}">
+  <h2 ng-if="mode != 'chooser'" translate>Drills</h2>
+  <a onClick="window.history.back()" class="close-btn" ng-if="mode == 'chooser'">
+    <i class="fa fa-times"></i>
+  </a>
+  <!-- <a class="sp-btn green" ng-if="mode == 'chooser'" onClick="window.history.back()">
+    <span class="ng-scope" translate>Back</span>
+  </a> -->
+  <h2 ng-if="mode == 'chooser'" translate>Choose Drill</h2>
+
+
+  <div class="content">
+    <div class="tools">
+      <a
+      class="sp-btn green" ng-if="!isDemo"
+      ng-click="newDrill()"><span class="glyphicon glyphicon-plus"></span> <span translate>New Drill</span></a>
+      <input type="text" name="search" value="" ng-model="search" placeholder="{{'Search Drills'|translate}}">
+      <a ng-if="mode == 'chooser'" ng-class="{'for-disabled':post.started}"
+      class="sp-btn green active"
+      ng-click="addDrills()" style="float: right;"><span class="glyphicon"></span> <span translate>Save</span></a>
+    </div>
+
+    <div class="table-head">
+      <div class="cell-1"><span translate>Name</span>
+        <span
+          class="glyphicon glyphicon-menu-up"
+          ng-class="{'active': (activeSort.name=='name' && activeSort.rev==false)}"
+          ng-click="activeSort.name='name';activeSort.rev=false"></span>
+        <span
+          class="glyphicon glyphicon-menu-down"
+          ng-class="{'active': (activeSort.name=='name' && activeSort.rev==true)}"
+          ng-click="activeSort.name='name';activeSort.rev=true"
+          ></span></div>
+      <div class="cell-2 ng-hide"><span translate>Date</span>
+        <span
+          class="glyphicon glyphicon-menu-up"
+          ng-class="{'active': (activeSort.name=='date' && activeSort.rev==false)}"
+          ng-click="activeSort.name='date';activeSort.rev=false"></span>
+        <span
+          class="glyphicon glyphicon-menu-down"
+          ng-class="{'active': (activeSort.name=='date' && activeSort.rev==true)}"
+          ng-click="activeSort.name='date';activeSort.rev=true"
+          ></span></div>
+      <div class="clearfix"></div>
+    </div>
+
+
+    <div class="table-list">
+      <div ng-if="drills.length == 0" class="empty-div-wrapper">
+        <div class="alert alert-warning" role="alert" translate>You haven't created any Drills</div>
+      </div>
+      <ul>
+        <li
+          ng-class="{
+            'mode-loading':(loadingAction==true),
+            'active': (activeDrillKey==drill.key || mode == 'chooser' && drill.selected),
+            'chooser-mode':(mode == 'chooser')
+          }"
+          class="heigt-fix"
+          ng-repeat="drill in drills | filter:search | orderBy:activeSort.name:activeSort.rev"
+          ng-click="onItemClick($event, drill)"
+          >
+          <div class="actions"  ng-if="mode != 'chooser'">
+            <span class="item" href="#" ng-click=""
+            dropdown-menu="actions"
+            dropdown-model="selectedAction"
+            dropdown-item-label="text"
+            dropdown-onchange="doAction(selected, drill, $index)"
+            >
+              <p class="pop-up-settings" translate>Settings</p>
+              <span class="glyphicon glyphicon-cog" aria-hidden="true" data-toggle="tooltip" data-placement="top"></span>
+            </span>
+          </div>
+          <div class="session-drill-detail-wrap drill-version" ng-hide="isPrintView" ng-if="mode != 'chooser'">
+            <div class="split-30 duration">
+              <span translate class="text">Duration</span>: <span class="text" ng-hide="editMode && activeIndex == $index">{{drill.duration}}</span>
+              <span ng-show="editMode && activeIndex == $index">
+                <input type="text" class="form-control clean ng-touched" ng-model="drill.duration">
+              </span>
+            </div>
+            <div class="split-30 field">
+              <span translate class="text">Field Size</span>: <span class="text" ng-hide="editMode && activeIndex == $index">{{drill.pitch}}</span>
+              <span ng-show="editMode && activeIndex == $index">
+                <input type="text" class="form-control clean ng-touched" ng-model="drill.pitch">
+              </span>
+            </div>
+          </div>
+
+          <div class="tool-holder" ng-hide="isPrintView" ng-if="mode != 'chooser'">
+            <a class="sp-btn green"
+                ng-click="editdrill(drill, $index)"
+                ng-hide="editMode && activeIndex == $index"
+              >
+              <span class="ng-scope" translate>Edit Parameters</span>
+            </a>
+            <a class="sp-btn green"
+               ng-click="updateDrill(drill, $index)"
+               ng-show="editMode && activeIndex == $index && !post.started"
+            >
+              <span class="ng-scope" translate>Update</span>
+            </a>
+            <div class="sp-btn green for-disabled" ng-show="post.started && activeIndex == $index" translate>
+              Checking...
+            </div>
+          </div>
+
+          <div ng-click="onSelect(drill)" style="z-index:0;">
+            <div class="loading-text" ng-if="loadingAction && (activeDrillKey==drill.key || mode == 'chooser' && drill.selected)" translate>
+              Saving...
+            </div>
+            <div class="imgbox">
+              <img ng-src="{{drill.thumpUrl}}?ts={{ts}}" alt="" />
+            </div>
+            <div class="contentbox">
+
+
+              <h3
+               ng-if="mode != 'chooser'"
+
+              >{{drill.name}}</h3>
+              <h3
+               ng-if="mode == 'chooser'"
+              >{{drill.name}}</h3>
+              <pre ng-hide="editMode && activeIndex == $index" >{{drill.setupText}}</pre>
+              <!-- <div class="subtitle">
+                <span></span>
+              </div> -->
+              <div class="select-actions" 
+                    ng-show="mode == 'chooser'"
+                    ng-class="{'active' : drill.selected}"
+                    >
+                <span class="sp-btn small green" ng-show="!drill.selected"
+                href="#"
+                translate>Select</span>
+
+                <span class="sp-btn small green" ng-show="drill.selected"
+                ng-class="{'active' : drill.selected}"
+
+                href="#"
+                translate>Selected</span>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>

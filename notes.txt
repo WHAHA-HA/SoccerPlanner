@@ -1,0 +1,13 @@
+
+
+Translation
+  https://angular-gettext.rocketeer.be/dev-guide/
+  https://www.npmjs.com/package/gulp-angular-gettext
+  https://github.com/jonathantneal/svg4everybody
+  https://github.com/danialfarid/ng-file-upload
+  http://jsfiddle.net/xxo3sk41/1/
+  https://gist.github.com/gustavohenke/9073132
+  Steps
+    1. gulp pot
+    2. Update translation using poedit
+    3. gulp translations

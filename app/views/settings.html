@@ -1,0 +1,83 @@
+<div class="screen screen-settings">
+  <div class="row">
+
+    <div class="col-md-4 col-md-offset-4">
+
+      <div class="box-level-1 padded">
+
+        <div class="">
+          <h2><span translate>Settings</span></h2>
+        </div>
+
+        <form ng-submit="saveProfile()" name="SettingsForm" novalidate>
+          <div class="form-group">
+            <label for="inpFullname"><span translate>Full Name</span><span ng-show="SettingsForm.name.$error.required">*</span></label>
+            <input  class="form-control clean"
+                    id="inpFullname"
+                    placeholder="Name"
+                    ng-model="view.user.name"
+                    name="name"
+                    ng-class="{'required-field' : SettingsForm.name.$error.required}"
+                    required />
+          </div>
+          <div class="form-group">
+            <label for="inpLanguage"><span translate>Language</span> </label>
+            <select
+              class="form-control  clean"
+              ng-model="view.local"
+              ng-options="lang.name for lang in view.languages track by lang.key"
+              name="language"
+
+              >
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="logoUploadBox"><span translate> Club Logo</span></label>
+            <div class="logoPreviewBox">
+
+              <div class="logoPreview">
+                <div class="imgbox" ng-if="view.file || view.user.logoUrl">
+                  <img ngf-thumbnail="view.file || view.user.logoUrl" ng-if="view.file || view.user.logoUrl">
+                </div>
+                <div class="noLogo" ng-if="!view.user.logoUrl && !view.file">
+                  <span></span>
+                </div>
+              </div>
+
+              <div
+                class="sp-btn small white fill"
+                ngf-select ng-model="view.file"
+                name="file"
+                ngf-pattern="'.jpeg,.jpg,.png,.gif,.bmp'"
+                accept=".jpeg, .jpg, .png, .gif, .bmp" ngf-max-size="5MB">
+                <span translate>Upload New Logo</span></div>
+              <div class="logoHelp">
+                <span translate>Maximum 5MB</span>
+              </div>
+
+            </div>
+
+            <div class="alert alert-danger" ng-show="view.error">
+              <span translate>Something went wrong!</span>
+            </div>
+
+          </div>
+          <button ng-hide="view.loading"
+                  type="submit"
+                  class="btn sp-btn green"
+                  ng-class="{'for-disabled': SettingsForm.$invalid}"
+                  ng-disabled = "SettingsForm.$invalid"
+                  >
+                  <span translate>Save</span>
+          </button>
+          <div class="sp-btn green for-disabled" ng-show="view.loading">
+            <span translate>Saving...</span>
+          </div>
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,148 @@
+<div class="screen screen-drill">
+  <div class="row" ng-show="view.printView || view.shareMode">
+    <div class="A4-width">
+      <div class="box-level-1 on-print top-tool">
+        <div class="row">
+          <div class="col-md-6">
+            <a class="sp-btn green" onClick="window.print();">
+              <span class="ng-scope" translate>Print</span>
+            </a>
+            <a class="sp-btn green" ng-click="back()" ng-hide="view.shareMode">
+              <span class="ng-scope" translate>Cancel</span>
+            </a>
+            <a class="sp-btn green" ng-click="copyDrill()" ng-show="(view.shareMode && !view.printView)" translate>Copy to My Drills</a>
+          </div>
+          <div class="col-md-6">
+            <div class="wrapp">
+              <div class="radio" >
+                <label>
+                  <input type="radio" name="drillImageColor" value="0" ng-model="view.showBlack">
+                  <span translate>Color</span>
+                </label>
+                <label>
+                  <input type="radio" name="drillImageColor" value="1" ng-model="view.showBlack">
+                  <span translate>Black &amp; White</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="row on-print" ng-show="(!view.shareMode && view.printView)">
+    <div class="A4-width">
+      <div class="box-level-1 on-print top-tool">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group col-md-6">
+              <label for="duration" translate>Duration</label>
+              <input type="text" class="form-control clean" id="Duration" ng-model="drill.duration">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="fieldSize" translate>Field Size</label>
+              <input type="text" class="form-control clean" id="fieldSize" ng-model="drill.pitch">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="wrapp">
+              <div class="radio" >
+                <a class="sp-btn green">
+                  <span ng-show="!updating" class="ng-scope" ng-click="updateDrill()" translate>Save</span>
+                  <span disabled ng-show="updating" class="ng-scope" translate>Saving...</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="A4-width on-print">
+      <div class="box-level-1 on-print top-tool" style="background-color:inherit;margin: 0;padding: 0;">
+        <div class="alert alert-warning" role="alert" translate><strong>Use A4</strong> paper size for best print output</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3" ng-show="(!view.printView && !view.shareMode)">
+      <div class="box-level-1 padded">
+        <div class="imgbox" >
+          <img ng-hide="view.showBlack == '1'" ng-src="{{drill.thumpUrl}}?ts={{ts}}" alt="" class="center-block"/>
+          <img ng-show="view.showBlack == '1'" ng-src="{{drill.thumpUrlBlack}}?ts={{ts}}" alt="" class="center-block"/>
+        </div>
+        <div class="detail">
+          <p translate>Setup</p>
+          <pre class="on-print-no-border">{{drill.setupText}}</pre>
+          <p translate>Instructions</p>
+          <pre class="on-print-no-border">{{drill.instructText}}</pre>
+          <p translate>Coaching Points</p>
+          <pre class="on-print-no-border">{{drill.coachText}}</pre>
+        </div>
+        <div class="tools on-print">
+          <a class="sp-btn green" ng-show="(!view.printView && !view.shareMode)" onClick="window.history.back()" translate>Back</a>
+          <a class="sp-btn green" ng-show="!view.printView" ng-click="printDrill()" translate>Print</a>
+          <a class="sp-btn green" ng-click="copyDrill()" ng-show="(view.shareMode && !view.printView)" translate>Copy to My Drills</a>
+        </div>
+      </div>
+    </div>
+    <div class="A4-width" ng-show="view.printView || view.shareMode">
+      <div class="white-sheet padded">
+        <div class="row header-print">
+          <div class="col-sm-3 col-md-2">
+            <div class="session-user-logo">
+              <img src="{{author.logoUrl}}" class="center-block"/>
+            </div>
+          </div>
+          <div class="col-sm-9 col-md-9">
+            <h2 class="title-of-page"
+                ng-class="{'tex-left':'view.printView'}"
+            >{{ drill.name }}</h2>
+          </div>
+        </div>
+        <div class="content">
+          <div class="imgbox" >
+            <img ng-hide="view.showBlack == '1'" ng-src="{{drill.thumpUrl}}?ts={{ts}}" alt="" class="center-block"/>
+            <img ng-show="view.showBlack == '1'" ng-src="{{drill.thumpUrlBlack}}?ts={{ts}}" alt="" class="center-block"/>
+          </div>
+          <div class="header-title-holder-one">
+            <div class="head">{{drill.order}} <span ng-hide="isPrintView">{{drill.drill.name}}<spa></div>
+            <div class="other-details">
+              <ul>
+                <li ng-if="drill.duration">
+                  <i class="fa fa-clock-o"></i> <span>{{drill.duration}}</span>
+                </li>
+                <li ng-if="drill.pitch">
+                  <i class="fa fa-expand"></i><span> {{drill.pitch}}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="detail">
+            <p translate>Setup</p>
+            <pre class="on-print-no-border">{{drill.setupText}}</pre>
+            <p translate>Instructions</p>
+            <pre class="on-print-no-border">{{drill.instructText}}</pre>
+            <p translate>Coaching Points</p>
+            <pre class="on-print-no-border">{{drill.coachText}}</pre>
+          </div>
+        </div>
+        <div class="tools on-print ng-hide">
+          <a class="sp-btn green" ng-show="!view.printView" onClick="window.history.back()" translate>Back</a>
+          <a class="sp-btn green" ng-show="!view.printView" ng-click="printDrill()" translate>Print</a>
+          <a class="sp-btn green" ng-click="copyDrill()" ng-show="(view.shareMode && !view.printView)" translate>Copy to My Drills</a>
+        </div>
+        <div class="footer-a4">
+          <div class="bar"><div class="line"></div></div>
+          <div class="copyrite-tex"><span translate>Created with </span> <b translate>Session Planner 4.0</b> | <b translate>soccerspecific.com</b></div>
+          <div class="logo">
+            <div class="img-wrap">
+              <img src="../imgs/soccer-specific-log-wide.png">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="empty-div on-print"></div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,300,400italic);
+
+$font-opensans: 'Open Sans', sans-serif;
+$pad-top: 24px;
+$pad-left: 16px;
+$pad: $pad-top $pad-left;
+
+@function contentHeight($height){
+    @return $height - ($pad-top * 2);
+}
+
+$color-red: #ed4b07;
+$color-green: #7abb30;
+$color-blue: #2D9BD8;
+$color-black: #202020;
+
+$bg-level-0: rgba(19, 82, 31, 0.72);
+$bg-level-1: rgba(5, 20, 8, 0.7);
+$bg-level-2: rgba(53, 174, 47, 0.48);
+$active-text-color: $color-green;
+
+
+
+$config: (
+  color: yellow
+);
